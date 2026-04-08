@@ -1,0 +1,6 @@
+framework module TouchAreaInsets {
+  umbrella header "TouchAreaInsets-umbrella.h"
+
+  export *
+  module * { export * }
+}

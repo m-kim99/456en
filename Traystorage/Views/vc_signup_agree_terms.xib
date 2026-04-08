@@ -1,0 +1,315 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SignupAgreeTerms" customModule="Traystorage" customModuleProvider="target">
+            <connections>
+                <outlet property="btnAllAgree" destination="lyX-zs-wec" id="LV7-ki-7ZS"/>
+                <outlet property="btnNext" destination="rHc-7e-C7U" id="lbh-kW-ZS5"/>
+                <outlet property="btnPolicyAgree" destination="Mue-ga-S13" id="BaO-4W-Mw1"/>
+                <outlet property="btnPolicyView" destination="Jh6-cH-qU9" id="kQd-vE-umS"/>
+                <outlet property="btnTermsAgree" destination="Sjw-gX-kek" id="tg0-E8-Ixc"/>
+                <outlet property="btnTermsView" destination="GiI-gc-kgK" id="c9g-VW-SDn"/>
+                <outlet property="view" destination="iN0-l3-epB" id="Myi-sW-c5o"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nun-WN-oga" userLabel="root">
+                    <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Anr-EP-rs9" userLabel="header">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="60"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gil-tk-b1c" userLabel="back">
+                                    <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" secondItem="Gil-tk-b1c" secondAttribute="height" id="fa7-nI-nDg"/>
+                                    </constraints>
+                                    <inset key="contentEdgeInsets" minX="10" minY="0.0" maxX="10" maxY="0.0"/>
+                                    <state key="normal" image="ic_back"/>
+                                    <connections>
+                                        <action selector="onClickBack:" destination="-1" eventType="touchUpInside" id="bet-8W-Shw"/>
+                                    </connections>
+                                </button>
+                                <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="1" translatesAutoresizingMaskIntoConstraints="NO" id="443-dL-mke">
+                                    <rect key="frame" x="0.0" y="56" width="414" height="4"/>
+                                    <color key="tintColor" red="0.1333333333" green="0.20000000000000001" blue="0.59215686270000001" alpha="1" colorSpace="calibratedRGB"/>
+                                </progressView>
+                            </subviews>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <constraints>
+                                <constraint firstAttribute="bottom" secondItem="Gil-tk-b1c" secondAttribute="bottom" id="08t-KD-ZVl"/>
+                                <constraint firstAttribute="bottom" secondItem="443-dL-mke" secondAttribute="bottom" id="8rr-Po-hHa"/>
+                                <constraint firstAttribute="height" constant="60" id="Gyu-YM-guc"/>
+                                <constraint firstAttribute="trailing" secondItem="443-dL-mke" secondAttribute="trailing" id="ZqK-xf-jvm"/>
+                                <constraint firstItem="Gil-tk-b1c" firstAttribute="top" secondItem="Anr-EP-rs9" secondAttribute="top" id="Zzi-wn-UiB"/>
+                                <constraint firstItem="443-dL-mke" firstAttribute="leading" secondItem="Anr-EP-rs9" secondAttribute="leading" id="ekN-fD-co5"/>
+                                <constraint firstItem="Gil-tk-b1c" firstAttribute="leading" secondItem="Anr-EP-rs9" secondAttribute="leading" id="qUT-dx-rDR"/>
+                            </constraints>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SEt-dI-M6X" userLabel="content">
+                            <rect key="frame" x="20" y="90" width="374" height="708"/>
+                            <subviews>
+                                <stackView opaque="NO" contentMode="scaleToFill" alignment="bottom" translatesAutoresizingMaskIntoConstraints="NO" id="Ypl-Cp-2Lj" userLabel="title">
+                                    <rect key="frame" x="0.0" y="0.0" width="374" height="26.5"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Please agree to the terms and conditions to sign up" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gcu-Ha-S4B" customClass="UIFontLabel" customModule="Traystorage" customModuleProvider="target">
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="26.5"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="xFontSize">
+                                                    <real key="value" value="22"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="string" keyPath="xibLocKey" value="signup_agree_detail"/>
+                                            </userDefinedRuntimeAttributes>
+                                        </label>
+                                        <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3/3" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eDf-jB-hqA" customClass="UIFontLabel" customModule="Traystorage" customModuleProvider="target">
+                                            <rect key="frame" x="0.0" y="9.5" width="0.0" height="17"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" systemColor="systemGrayColor"/>
+                                            <nil key="highlightedColor"/>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="xFontSize">
+                                                    <real key="value" value="14"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                        </label>
+                                    </subviews>
+                                </stackView>
+                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="26" translatesAutoresizingMaskIntoConstraints="NO" id="cdW-4V-d4E" userLabel="agree group">
+                                    <rect key="frame" x="0.0" y="70.5" width="374" height="248"/>
+                                    <subviews>
+                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="TrY-SO-wru" userLabel="agree group">
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="24"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lyX-zs-wec" customClass="UIFontButton" customModule="Traystorage" customModuleProvider="target">
+                                                    <rect key="frame" x="0.0" y="0.0" width="183" height="24"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <inset key="titleEdgeInsets" minX="8" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                    <state key="normal" title="All agree" image="Icon-C-CheckOff-24">
+                                                        <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </state>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="xFontSize">
+                                                            <real key="value" value="15"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="string" keyPath="xibLocKey" value="all_agree"/>
+                                                    </userDefinedRuntimeAttributes>
+                                                    <connections>
+                                                        <action selector="onClickAllAgree:" destination="-1" eventType="touchUpInside" id="Wki-ME-7Fh"/>
+                                                    </connections>
+                                                </button>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="baH-h6-wqc">
+                                                    <rect key="frame" x="191" y="12" width="183" height="0.0"/>
+                                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" id="Mex-tc-TQb"/>
+                                                    </constraints>
+                                                </view>
+                                            </subviews>
+                                        </stackView>
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="22" translatesAutoresizingMaskIntoConstraints="NO" id="m25-pD-mru">
+                                            <rect key="frame" x="0.0" y="50" width="374" height="198"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DZD-Gw-HcA">
+                                                    <rect key="frame" x="0.0" y="0.0" width="374" height="88"/>
+                                                    <subviews>
+                                                        <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sjw-gX-kek" customClass="UIFontButton" customModule="Traystorage" customModuleProvider="target">
+                                                            <rect key="frame" x="0.0" y="0.0" width="198" height="88"/>
+                                                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                            <state key="normal" title="Terms of use (required)" image="Icon-C-Check-24"/>
+                                                            <buttonConfiguration key="configuration" style="plain" image="Icon-C-Check-24" title="Terms of use (required)"/>
+                                                            <userDefinedRuntimeAttributes>
+                                                                <userDefinedRuntimeAttribute type="string" keyPath="xibLocKey" value="terms_of_use_required"/>
+                                                                <userDefinedRuntimeAttribute type="number" keyPath="xFontSize">
+                                                                    <real key="value" value="14"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                            </userDefinedRuntimeAttributes>
+                                                            <connections>
+                                                                <action selector="onClickTerms:" destination="-1" eventType="touchUpInside" id="vc0-KH-PYb"/>
+                                                            </connections>
+                                                        </button>
+                                                        <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GiI-gc-kgK">
+                                                            <rect key="frame" x="320.5" y="0.0" width="53.5" height="88"/>
+                                                            <color key="tintColor" systemColor="systemGrayColor"/>
+                                                            <state key="normal" title="Button"/>
+                                                            <buttonConfiguration key="configuration" style="plain" title="view"/>
+                                                            <userDefinedRuntimeAttributes>
+                                                                <userDefinedRuntimeAttribute type="string" keyPath="xibLocKey" value="signup_agree_view"/>
+                                                            </userDefinedRuntimeAttributes>
+                                                            <connections>
+                                                                <action selector="onClickTermsView:" destination="-1" eventType="touchUpInside" id="7G5-Tj-esy"/>
+                                                            </connections>
+                                                        </button>
+                                                    </subviews>
+                                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                    <constraints>
+                                                        <constraint firstItem="Sjw-gX-kek" firstAttribute="top" secondItem="DZD-Gw-HcA" secondAttribute="top" id="4Nd-Tk-Y5m"/>
+                                                        <constraint firstAttribute="bottom" secondItem="GiI-gc-kgK" secondAttribute="bottom" id="8I8-fM-ylo"/>
+                                                        <constraint firstAttribute="trailing" secondItem="GiI-gc-kgK" secondAttribute="trailing" id="Nvx-Pj-Vf1"/>
+                                                        <constraint firstItem="GiI-gc-kgK" firstAttribute="top" secondItem="DZD-Gw-HcA" secondAttribute="top" id="Wj3-nv-Efo"/>
+                                                        <constraint firstAttribute="bottom" secondItem="Sjw-gX-kek" secondAttribute="bottom" id="YCh-cr-zlw"/>
+                                                        <constraint firstItem="Sjw-gX-kek" firstAttribute="leading" secondItem="DZD-Gw-HcA" secondAttribute="leading" id="Zst-Br-VSE"/>
+                                                    </constraints>
+                                                </view>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uXu-Yk-llh">
+                                                    <rect key="frame" x="0.0" y="110" width="374" height="88"/>
+                                                    <subviews>
+                                                        <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mue-ga-S13" customClass="UIFontButton" customModule="Traystorage" customModuleProvider="target">
+                                                            <rect key="frame" x="0.0" y="0.0" width="201" height="88"/>
+                                                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                            <state key="normal" title="Privacy Policy (required)" image="Icon-C-Check-24"/>
+                                                            <buttonConfiguration key="configuration" style="plain" image="Icon-C-Check-24" title="Privacy Policy (required)"/>
+                                                            <userDefinedRuntimeAttributes>
+                                                                <userDefinedRuntimeAttribute type="string" keyPath="xibLocKey" value="privacy_policy_required"/>
+                                                                <userDefinedRuntimeAttribute type="number" keyPath="xFontSize">
+                                                                    <real key="value" value="14"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                            </userDefinedRuntimeAttributes>
+                                                            <connections>
+                                                                <action selector="onClickPrivacy:" destination="-1" eventType="touchUpInside" id="hQ5-av-Enc"/>
+                                                            </connections>
+                                                        </button>
+                                                        <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jh6-cH-qU9">
+                                                            <rect key="frame" x="320.5" y="0.0" width="53.5" height="88"/>
+                                                            <color key="tintColor" systemColor="systemGrayColor"/>
+                                                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                            <state key="normal" title="view"/>
+                                                            <buttonConfiguration key="configuration" style="plain" title="view"/>
+                                                            <userDefinedRuntimeAttributes>
+                                                                <userDefinedRuntimeAttribute type="string" keyPath="xibLocKey" value="signup_agree_view"/>
+                                                            </userDefinedRuntimeAttributes>
+                                                            <connections>
+                                                                <action selector="onClickPrivacyView:" destination="-1" eventType="touchUpInside" id="51P-gH-7IG"/>
+                                                            </connections>
+                                                        </button>
+                                                    </subviews>
+                                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="trailing" secondItem="Jh6-cH-qU9" secondAttribute="trailing" id="6TX-fk-kD6"/>
+                                                        <constraint firstItem="Jh6-cH-qU9" firstAttribute="top" secondItem="uXu-Yk-llh" secondAttribute="top" id="PZa-WA-nk3"/>
+                                                        <constraint firstAttribute="bottom" secondItem="Mue-ga-S13" secondAttribute="bottom" id="cPI-Lo-scf"/>
+                                                        <constraint firstItem="Mue-ga-S13" firstAttribute="top" secondItem="uXu-Yk-llh" secondAttribute="top" id="onK-ww-ZHC"/>
+                                                        <constraint firstItem="Mue-ga-S13" firstAttribute="leading" secondItem="uXu-Yk-llh" secondAttribute="leading" id="tPN-Jz-4eO"/>
+                                                        <constraint firstAttribute="bottom" secondItem="Jh6-cH-qU9" secondAttribute="bottom" id="xiV-A6-CLS"/>
+                                                    </constraints>
+                                                </view>
+                                            </subviews>
+                                        </stackView>
+                                    </subviews>
+                                </stackView>
+                                <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rHc-7e-C7U" customClass="UIFontButton" customModule="Traystorage" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="654" width="374" height="54"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="54" id="pie-Cw-6ug"/>
+                                    </constraints>
+                                    <color key="tintColor" red="0.1333333333" green="0.20000000000000001" blue="0.59215686270000001" alpha="1" colorSpace="calibratedRGB"/>
+                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                    <state key="normal" title="signup">
+                                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </state>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="xFontSize">
+                                            <real key="value" value="15"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                            <real key="value" value="3"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="boolean" keyPath="isFilled" value="YES"/>
+                                        <userDefinedRuntimeAttribute type="boolean" keyPath="useCustomeRadius" value="YES"/>
+                                        <userDefinedRuntimeAttribute type="boolean" keyPath="isBold" value="YES"/>
+                                        <userDefinedRuntimeAttribute type="string" keyPath="xibLocKey" value="signup"/>
+                                    </userDefinedRuntimeAttributes>
+                                    <connections>
+                                        <action selector="onClickNext:" destination="-1" eventType="touchUpInside" id="CQc-pE-z43"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <constraints>
+                                <constraint firstAttribute="trailing" secondItem="rHc-7e-C7U" secondAttribute="trailing" id="AMc-Ji-gap"/>
+                                <constraint firstAttribute="trailing" secondItem="Ypl-Cp-2Lj" secondAttribute="trailing" id="KC3-Z1-6yz"/>
+                                <constraint firstItem="rHc-7e-C7U" firstAttribute="leading" secondItem="SEt-dI-M6X" secondAttribute="leading" id="cci-tj-C1t"/>
+                                <constraint firstItem="cdW-4V-d4E" firstAttribute="top" secondItem="Ypl-Cp-2Lj" secondAttribute="bottom" constant="44" id="eRM-JG-BK8"/>
+                                <constraint firstItem="Ypl-Cp-2Lj" firstAttribute="top" secondItem="SEt-dI-M6X" secondAttribute="top" id="iLR-1a-J8I"/>
+                                <constraint firstItem="cdW-4V-d4E" firstAttribute="leading" secondItem="SEt-dI-M6X" secondAttribute="leading" id="kGz-Wj-0wl"/>
+                                <constraint firstAttribute="bottom" secondItem="rHc-7e-C7U" secondAttribute="bottom" id="p7g-2s-SEM"/>
+                                <constraint firstItem="Ypl-Cp-2Lj" firstAttribute="leading" secondItem="SEt-dI-M6X" secondAttribute="leading" id="wRQ-7I-K94"/>
+                                <constraint firstAttribute="trailing" secondItem="cdW-4V-d4E" secondAttribute="trailing" id="wwN-Lt-7KA"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <gestureRecognizers/>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="SEt-dI-M6X" secondAttribute="bottom" constant="20" id="7F7-S6-A9w"/>
+                        <constraint firstItem="SEt-dI-M6X" firstAttribute="leading" secondItem="nun-WN-oga" secondAttribute="leading" constant="20" id="Eqg-es-kFM"/>
+                        <constraint firstAttribute="trailing" secondItem="SEt-dI-M6X" secondAttribute="trailing" constant="20" id="IiY-9L-fCQ"/>
+                        <constraint firstItem="Anr-EP-rs9" firstAttribute="leading" secondItem="nun-WN-oga" secondAttribute="leading" id="MSl-Os-ddV"/>
+                        <constraint firstItem="Anr-EP-rs9" firstAttribute="top" secondItem="nun-WN-oga" secondAttribute="top" id="Mfn-ZK-rkm"/>
+                        <constraint firstAttribute="trailing" secondItem="Anr-EP-rs9" secondAttribute="trailing" id="Wtu-Dv-Sxw"/>
+                        <constraint firstItem="SEt-dI-M6X" firstAttribute="top" secondItem="Anr-EP-rs9" secondAttribute="bottom" constant="30" id="iO3-5U-dw6"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="top" secondItem="nun-WN-oga" secondAttribute="top" id="GkH-av-TNw"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="nun-WN-oga" secondAttribute="trailing" id="IiF-mQ-jNz"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="nun-WN-oga" secondAttribute="bottom" id="RMz-2C-X25"/>
+                <constraint firstItem="nun-WN-oga" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="bDa-Jz-d2q"/>
+            </constraints>
+            <point key="canvasLocation" x="133" y="154"/>
+        </view>
+    </objects>
+    <designables>
+        <designable name="Mue-ga-S13">
+            <size key="intrinsicContentSize" width="201" height="38"/>
+        </designable>
+        <designable name="Sjw-gX-kek">
+            <size key="intrinsicContentSize" width="198" height="38"/>
+        </designable>
+        <designable name="eDf-jB-hqA">
+            <size key="intrinsicContentSize" width="21.5" height="17"/>
+        </designable>
+        <designable name="gcu-Ha-S4B">
+            <size key="intrinsicContentSize" width="192" height="26.5"/>
+        </designable>
+        <designable name="lyX-zs-wec">
+            <size key="intrinsicContentSize" width="87" height="24"/>
+        </designable>
+        <designable name="rHc-7e-C7U">
+            <size key="intrinsicContentSize" width="45" height="30"/>
+        </designable>
+    </designables>
+    <resources>
+        <image name="Icon-C-Check-24" width="24" height="24"/>
+        <image name="Icon-C-CheckOff-24" width="24" height="24"/>
+        <image name="ic_back" width="24" height="24"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGrayColor">
+            <color red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ConfirmDialog" customModule="Traystorage" customModuleProvider="target">
+            <connections>
+                <outlet property="btnCancel" destination="yeh-mA-ZYT" id="LTN-H0-Vye"/>
+                <outlet property="btnYes" destination="Gy5-pw-mU3" id="HBU-AP-Qpu"/>
+                <outlet property="lblContent" destination="6Yj-MR-52g" id="yYq-cR-we7"/>
+                <outlet property="lblTitle" destination="Tlo-EY-TZ3" id="HPe-bA-Sjp"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="vwBg" destination="QeD-aV-eCW" id="cgs-vV-AyA"/>
+                <outlet property="vwRoot" destination="MF8-HI-bbB" id="B3d-sY-Kig"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" id="MF8-HI-bbB" userLabel="root">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <view alpha="0.59999999999999998" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QeD-aV-eCW" userLabel="bg">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            <color key="backgroundColor" white="0.13" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vWv-87-cRh" userLabel="content">
+                            <rect key="frame" x="20" y="365" width="374" height="166.5"/>
+                            <subviews>
+                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="IVB-KN-GMI">
+                                    <rect key="frame" x="20" y="20" width="334" height="126.5"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Complete" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tlo-EY-TZ3" customClass="UIFontLabel" customModule="Traystorage" customModuleProvider="target">
+                                            <rect key="frame" x="0.0" y="0.0" width="334" height="20.5"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                            <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <nil key="highlightedColor"/>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="xFontSize">
+                                                    <real key="value" value="18"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="boolean" keyPath="isBold" value="YES"/>
+                                            </userDefinedRuntimeAttributes>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Yj-MR-52g" customClass="UIFontLabel" customModule="Traystorage" customModuleProvider="target">
+                                            <rect key="frame" x="0.0" y="28.5" width="334" height="54"/>
+                                            <string key="text">Mosaic, etc. for privacy protection.\nAfter the oper, it will be published.\nThere is no editing of the video itself. It may take some time</string>
+                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                            <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <nil key="highlightedColor"/>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="xFontSize">
+                                                    <real key="value" value="15"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                        </label>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OTy-mY-d6n" userLabel="buttons">
+                                            <rect key="frame" x="0.0" y="90.5" width="334" height="36"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="lQt-j9-hXz">
+                                                    <rect key="frame" x="184" y="0.0" width="150" height="36"/>
+                                                    <subviews>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yeh-mA-ZYT" customClass="UIFontButton" customModule="Traystorage" customModuleProvider="target">
+                                                            <rect key="frame" x="0.0" y="0.0" width="70" height="36"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="70" id="FdD-Cq-6Uw"/>
+                                                            </constraints>
+                                                            <inset key="contentEdgeInsets" minX="8" minY="0.0" maxX="8" maxY="0.0"/>
+                                                            <state key="normal" title="cancel">
+                                                                <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            </state>
+                                                            <userDefinedRuntimeAttributes>
+                                                                <userDefinedRuntimeAttribute type="number" keyPath="xFontSize">
+                                                                    <real key="value" value="14"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                                <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                                    <color key="value" red="0.1333333333" green="0.20000000000000001" blue="0.59215686270000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                                <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                                    <real key="value" value="2"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                    <real key="value" value="20"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                                <userDefinedRuntimeAttribute type="boolean" keyPath="isOutline" value="YES"/>
+                                                                <userDefinedRuntimeAttribute type="string" keyPath="xibLocKey" value="cancel"/>
+                                                            </userDefinedRuntimeAttributes>
+                                                            <connections>
+                                                                <action selector="onClickNo:" destination="-1" eventType="touchUpInside" id="veN-oi-lkd"/>
+                                                            </connections>
+                                                        </button>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gy5-pw-mU3" customClass="UIFontButton" customModule="Traystorage" customModuleProvider="target">
+                                                            <rect key="frame" x="80" y="0.0" width="70" height="36"/>
+                                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="70" id="REr-Bc-i8m"/>
+                                                            </constraints>
+                                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                            <inset key="contentEdgeInsets" minX="8" minY="0.0" maxX="8" maxY="0.0"/>
+                                                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                            <state key="normal" title="confirm"/>
+                                                            <userDefinedRuntimeAttributes>
+                                                                <userDefinedRuntimeAttribute type="number" keyPath="xFontSize">
+                                                                    <real key="value" value="14"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                    <real key="value" value="20"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                                <userDefinedRuntimeAttribute type="boolean" keyPath="isFilled" value="YES"/>
+                                                                <userDefinedRuntimeAttribute type="string" keyPath="xibLocKey" value="confirm"/>
+                                                            </userDefinedRuntimeAttributes>
+                                                            <connections>
+                                                                <action selector="onClickYes:" destination="-1" eventType="touchUpInside" id="fia-AH-XUM"/>
+                                                            </connections>
+                                                        </button>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="lQt-j9-hXz" secondAttribute="trailing" id="G2K-in-1IQ"/>
+                                                <constraint firstAttribute="height" constant="36" id="Gj0-r6-PZu"/>
+                                                <constraint firstItem="lQt-j9-hXz" firstAttribute="top" secondItem="OTy-mY-d6n" secondAttribute="top" id="M91-Sf-YYI"/>
+                                                <constraint firstAttribute="bottom" secondItem="lQt-j9-hXz" secondAttribute="bottom" id="s6M-fa-WMU"/>
+                                            </constraints>
+                                        </view>
+                                    </subviews>
+                                </stackView>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="bottom" secondItem="IVB-KN-GMI" secondAttribute="bottom" constant="20" id="TOh-Tk-MA9"/>
+                                <constraint firstAttribute="trailing" secondItem="IVB-KN-GMI" secondAttribute="trailing" constant="20" id="XOS-zG-Vkv"/>
+                                <constraint firstItem="IVB-KN-GMI" firstAttribute="leading" secondItem="vWv-87-cRh" secondAttribute="leading" constant="20" id="fuH-EJ-Eiy"/>
+                                <constraint firstItem="IVB-KN-GMI" firstAttribute="top" secondItem="vWv-87-cRh" secondAttribute="top" constant="20" id="g5O-QK-GOD"/>
+                            </constraints>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                    <real key="value" value="10"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="QeD-aV-eCW" secondAttribute="bottom" id="5YX-CV-JZ5"/>
+                        <constraint firstItem="QeD-aV-eCW" firstAttribute="top" secondItem="MF8-HI-bbB" secondAttribute="top" id="9SV-nX-9b7"/>
+                        <constraint firstAttribute="trailing" secondItem="QeD-aV-eCW" secondAttribute="trailing" id="Yf5-Db-9wQ"/>
+                        <constraint firstItem="QeD-aV-eCW" firstAttribute="leading" secondItem="MF8-HI-bbB" secondAttribute="leading" id="pMV-gt-DAd"/>
+                        <constraint firstItem="vWv-87-cRh" firstAttribute="centerY" secondItem="MF8-HI-bbB" secondAttribute="centerY" id="ziW-CY-bT2"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="vWv-87-cRh" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="OgY-gl-urj"/>
+                <constraint firstItem="vWv-87-cRh" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" constant="-20" id="z6w-Ak-dmL"/>
+            </constraints>
+            <point key="canvasLocation" x="135" y="96"/>
+        </view>
+    </objects>
+    <designables>
+        <designable name="6Yj-MR-52g">
+            <size key="intrinsicContentSize" width="901.5" height="18"/>
+        </designable>
+        <designable name="Gy5-pw-mU3">
+            <size key="intrinsicContentSize" width="80" height="21"/>
+        </designable>
+        <designable name="Tlo-EY-TZ3">
+            <size key="intrinsicContentSize" width="79" height="20.5"/>
+        </designable>
+        <designable name="yeh-mA-ZYT">
+            <size key="intrinsicContentSize" width="61" height="18"/>
+        </designable>
+    </designables>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

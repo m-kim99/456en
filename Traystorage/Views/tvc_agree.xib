@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="118" id="KGk-i7-Jjw" customClass="AgreeTVC" customModule="Traystorage" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="362" height="95"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="362" height="95"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="aQV-oi-MeL">
+                        <rect key="frame" x="0.0" y="11" width="362" height="73"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TUV-FO-8UH">
+                                <rect key="frame" x="0.0" y="4.5" width="73.5" height="64"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="nWh-NK-pn0">
+                                        <rect key="frame" x="0.0" y="0.0" width="73.5" height="64"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="1000" verticalHuggingPriority="251" image="Icon-C-Check-24" translatesAutoresizingMaskIntoConstraints="NO" id="2K0-B0-Egh">
+                                                <rect key="frame" x="0.0" y="0.0" width="24" height="64"/>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ms7-bU-l25" customClass="UIFontLabel" customModule="Traystorage" customModuleProvider="target">
+                                                <rect key="frame" x="32" y="0.0" width="41.5" height="64"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="xFontSize">
+                                                        <real key="value" value="14"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qyr-WV-R0H">
+                                        <rect key="frame" x="0.0" y="0.0" width="73.5" height="64"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <connections>
+                                            <action selector="onClickCheckItem:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="0tJ-8w-ebP"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="nWh-NK-pn0" firstAttribute="top" secondItem="TUV-FO-8UH" secondAttribute="top" id="3UD-ye-SiD"/>
+                                    <constraint firstAttribute="bottom" secondItem="Qyr-WV-R0H" secondAttribute="bottom" id="H9t-Ek-fWf"/>
+                                    <constraint firstItem="Qyr-WV-R0H" firstAttribute="leading" secondItem="TUV-FO-8UH" secondAttribute="leading" id="MI6-tY-g9T"/>
+                                    <constraint firstAttribute="trailing" secondItem="nWh-NK-pn0" secondAttribute="trailing" id="OyN-zU-Q4S"/>
+                                    <constraint firstItem="nWh-NK-pn0" firstAttribute="leading" secondItem="TUV-FO-8UH" secondAttribute="leading" id="RWM-ah-qnu"/>
+                                    <constraint firstItem="Qyr-WV-R0H" firstAttribute="top" secondItem="TUV-FO-8UH" secondAttribute="top" id="gJb-QL-PJg"/>
+                                    <constraint firstAttribute="trailing" secondItem="Qyr-WV-R0H" secondAttribute="trailing" id="joH-Ku-bD5"/>
+                                    <constraint firstAttribute="bottom" secondItem="nWh-NK-pn0" secondAttribute="bottom" id="nhh-KE-xdF"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1eb-41-88j">
+                                <rect key="frame" x="73.5" y="36.5" width="256.5" height="0.0"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" id="vg1-dP-2lZ"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0yX-fT-eoo" customClass="UIFontButton" customModule="Traystorage" customModuleProvider="target">
+                                <rect key="frame" x="330" y="21.5" width="32" height="30"/>
+                                <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="view"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="xibLocKey" value="agree_view"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="xFontSize">
+                                        <real key="value" value="14"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="onClickView:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="C3F-op-t4u"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                    </stackView>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="aQV-oi-MeL" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="5va-m6-FAC"/>
+                    <constraint firstAttribute="trailing" secondItem="aQV-oi-MeL" secondAttribute="trailing" id="5y1-tW-Jeg"/>
+                    <constraint firstItem="aQV-oi-MeL" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="u0d-4K-2gw"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="aQV-oi-MeL" secondAttribute="bottom" id="vlk-dW-pzB"/>
+                </constraints>
+            </tableViewCellContentView>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <connections>
+                <outlet property="checkImageView" destination="2K0-B0-Egh" id="MM7-mI-VWv"/>
+                <outlet property="titleLabel" destination="ms7-bU-l25" id="GiE-IR-jSg"/>
+            </connections>
+            <point key="canvasLocation" x="405.79710144927537" y="137.94642857142856"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="Icon-C-Check-24" width="24" height="24"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

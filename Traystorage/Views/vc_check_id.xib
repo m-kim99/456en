@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CheckIdVC" customModule="Traystorage" customModuleProvider="target">
+            <connections>
+                <outlet property="lblLoginID" destination="dbE-D0-o2v" id="EQY-sj-MjI"/>
+                <outlet property="view" destination="iN0-l3-epB" id="FAD-Na-caZ"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zPq-N1-lLf" userLabel="root">
+                    <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CCX-Ce-a4x" userLabel="back">
+                            <rect key="frame" x="364" y="0.0" width="50" height="50"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="50" id="0dQ-H1-B6Q"/>
+                                <constraint firstAttribute="width" constant="50" id="6Sl-eW-3GM"/>
+                            </constraints>
+                            <state key="normal" image="Icon-GNB-Close"/>
+                            <connections>
+                                <action selector="onClickBack:" destination="-1" eventType="touchUpInside" id="isd-TQ-xlV"/>
+                            </connections>
+                        </button>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6SJ-dE-IbT" userLabel="content">
+                            <rect key="frame" x="0.0" y="50" width="414" height="768"/>
+                            <subviews>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DCl-m3-u07" userLabel="margin content">
+                                    <rect key="frame" x="20" y="30" width="374" height="416"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please check your id" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PjA-CI-Ywd" customClass="UIFontLabel" customModule="Traystorage" customModuleProvider="target">
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="26.5"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="xFontSize">
+                                                    <real key="value" value="22"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="string" keyPath="xibLocKey" value="check_id_desc"/>
+                                            </userDefinedRuntimeAttributes>
+                                        </label>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="igd-EZ-EYk">
+                                            <rect key="frame" x="0.0" y="72.5" width="374" height="149"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="22" translatesAutoresizingMaskIntoConstraints="NO" id="c9V-lT-brC">
+                                                    <rect key="frame" x="138.5" y="46" width="97.5" height="57"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="id" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sxd-yX-lme" customClass="UIFontLabel" customModule="Traystorage" customModuleProvider="target">
+                                                            <rect key="frame" x="0.0" y="0.0" width="97.5" height="17"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                            <userDefinedRuntimeAttributes>
+                                                                <userDefinedRuntimeAttribute type="number" keyPath="xFontSize">
+                                                                    <real key="value" value="14"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                                <userDefinedRuntimeAttribute type="string" keyPath="xibLocKey" value="check_id_label"/>
+                                                            </userDefinedRuntimeAttributes>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="userid" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dbE-D0-o2v" customClass="UIFontLabel" customModule="Traystorage" customModuleProvider="target">
+                                                            <rect key="frame" x="28" y="39" width="41.5" height="18"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <color key="textColor" red="0.1333333333" green="0.20000000000000001" blue="0.59215686270000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                            <userDefinedRuntimeAttributes>
+                                                                <userDefinedRuntimeAttribute type="number" keyPath="xFontSize">
+                                                                    <real key="value" value="15"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                                <userDefinedRuntimeAttribute type="boolean" keyPath="isBold" value="YES"/>
+                                                            </userDefinedRuntimeAttributes>
+                                                        </label>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                            <color key="backgroundColor" systemColor="systemGray5Color"/>
+                                            <constraints>
+                                                <constraint firstItem="c9V-lT-brC" firstAttribute="centerX" secondItem="igd-EZ-EYk" secondAttribute="centerX" id="OB2-qC-xNj"/>
+                                                <constraint firstAttribute="bottom" secondItem="c9V-lT-brC" secondAttribute="bottom" constant="46" id="egI-od-2BT"/>
+                                                <constraint firstItem="c9V-lT-brC" firstAttribute="top" secondItem="igd-EZ-EYk" secondAttribute="top" constant="46" id="raQ-9E-rnU"/>
+                                            </constraints>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                    <real key="value" value="5"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                        </view>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k6Y-k7-IZS" customClass="UIFontButton" customModule="Traystorage" customModuleProvider="target">
+                                            <rect key="frame" x="0.0" y="292" width="374" height="54"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="54" id="jXA-WU-WuR"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                            <color key="tintColor" red="0.1333333333" green="0.20000000000000001" blue="0.59215686270000001" alpha="1" colorSpace="calibratedRGB"/>
+                                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                            <state key="normal" title="login"/>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="xFontSize">
+                                                    <real key="value" value="15"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="boolean" keyPath="isBold" value="YES"/>
+                                                <userDefinedRuntimeAttribute type="boolean" keyPath="isFilled" value="YES"/>
+                                                <userDefinedRuntimeAttribute type="boolean" keyPath="useCustomeRadius" value="YES"/>
+                                                <userDefinedRuntimeAttribute type="string" keyPath="xibLocKey" value="login"/>
+                                            </userDefinedRuntimeAttributes>
+                                            <connections>
+                                                <action selector="onLogin:" destination="-1" eventType="touchUpInside" id="CDI-Do-KzA"/>
+                                            </connections>
+                                        </button>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GvM-8Z-ym6" customClass="UIFontButton" customModule="Traystorage" customModuleProvider="target">
+                                            <rect key="frame" x="0.0" y="362" width="374" height="54"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                            <color key="tintColor" red="0.1333333333" green="0.20000000000000001" blue="0.59215686270000001" alpha="1" colorSpace="calibratedRGB"/>
+                                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                            <state key="normal" title="find password"/>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="xFontSize">
+                                                    <real key="value" value="15"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="boolean" keyPath="isOutline" value="YES"/>
+                                                <userDefinedRuntimeAttribute type="boolean" keyPath="isBold" value="YES"/>
+                                                <userDefinedRuntimeAttribute type="boolean" keyPath="useCustomeRadius" value="YES"/>
+                                                <userDefinedRuntimeAttribute type="string" keyPath="xibLocKey" value="find_pwd"/>
+                                            </userDefinedRuntimeAttributes>
+                                            <connections>
+                                                <action selector="onFindPassword:" destination="-1" eventType="touchUpInside" id="ZlT-op-mMM"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="GvM-8Z-ym6" secondAttribute="trailing" id="847-8o-Mv6"/>
+                                        <constraint firstItem="GvM-8Z-ym6" firstAttribute="leading" secondItem="DCl-m3-u07" secondAttribute="leading" id="8Sm-am-HBV"/>
+                                        <constraint firstItem="igd-EZ-EYk" firstAttribute="leading" secondItem="DCl-m3-u07" secondAttribute="leading" id="Ap1-TR-m5V"/>
+                                        <constraint firstItem="igd-EZ-EYk" firstAttribute="top" secondItem="PjA-CI-Ywd" secondAttribute="bottom" constant="46" id="Ndj-aU-ScA"/>
+                                        <constraint firstAttribute="trailing" secondItem="k6Y-k7-IZS" secondAttribute="trailing" id="R25-e6-xku"/>
+                                        <constraint firstAttribute="trailing" secondItem="PjA-CI-Ywd" secondAttribute="trailing" id="RB7-nL-OMR"/>
+                                        <constraint firstItem="GvM-8Z-ym6" firstAttribute="top" secondItem="k6Y-k7-IZS" secondAttribute="bottom" constant="16" id="Vui-SK-GH4"/>
+                                        <constraint firstItem="PjA-CI-Ywd" firstAttribute="leading" secondItem="DCl-m3-u07" secondAttribute="leading" id="Zlt-Uv-hvz"/>
+                                        <constraint firstItem="GvM-8Z-ym6" firstAttribute="height" secondItem="k6Y-k7-IZS" secondAttribute="height" id="hrA-wb-hLS"/>
+                                        <constraint firstAttribute="bottom" secondItem="GvM-8Z-ym6" secondAttribute="bottom" id="iZD-MD-9N4"/>
+                                        <constraint firstItem="PjA-CI-Ywd" firstAttribute="top" secondItem="DCl-m3-u07" secondAttribute="top" id="mKD-k2-gTN"/>
+                                        <constraint firstItem="k6Y-k7-IZS" firstAttribute="top" secondItem="igd-EZ-EYk" secondAttribute="bottom" constant="70.5" id="taP-gk-EP1"/>
+                                        <constraint firstItem="k6Y-k7-IZS" firstAttribute="leading" secondItem="DCl-m3-u07" secondAttribute="leading" id="v4X-ml-9KH"/>
+                                        <constraint firstAttribute="trailing" secondItem="igd-EZ-EYk" secondAttribute="trailing" id="x5G-hY-KGV"/>
+                                    </constraints>
+                                </view>
+                            </subviews>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <constraints>
+                                <constraint firstAttribute="trailing" secondItem="DCl-m3-u07" secondAttribute="trailing" constant="20" id="PsG-hY-Lvn"/>
+                                <constraint firstAttribute="trailing" secondItem="DCl-m3-u07" secondAttribute="trailing" constant="20" id="gM4-1c-5oV"/>
+                                <constraint firstItem="DCl-m3-u07" firstAttribute="leading" secondItem="6SJ-dE-IbT" secondAttribute="leading" constant="20" id="h6w-J1-Yzw"/>
+                                <constraint firstItem="DCl-m3-u07" firstAttribute="leading" secondItem="6SJ-dE-IbT" secondAttribute="leading" constant="20" id="mYA-91-t8G"/>
+                                <constraint firstItem="DCl-m3-u07" firstAttribute="top" secondItem="6SJ-dE-IbT" secondAttribute="top" constant="30" id="yqv-D0-nbN"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <gestureRecognizers/>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="6SJ-dE-IbT" secondAttribute="bottom" id="AWf-vb-htI"/>
+                        <constraint firstItem="6SJ-dE-IbT" firstAttribute="top" secondItem="CCX-Ce-a4x" secondAttribute="bottom" id="B5t-nr-KaZ"/>
+                        <constraint firstAttribute="trailing" secondItem="6SJ-dE-IbT" secondAttribute="trailing" id="WJT-pI-yYd"/>
+                        <constraint firstItem="CCX-Ce-a4x" firstAttribute="top" secondItem="zPq-N1-lLf" secondAttribute="top" id="na9-8n-y0N"/>
+                        <constraint firstItem="6SJ-dE-IbT" firstAttribute="leading" secondItem="zPq-N1-lLf" secondAttribute="leading" id="vgI-aC-ddC"/>
+                        <constraint firstAttribute="trailing" secondItem="CCX-Ce-a4x" secondAttribute="trailing" id="ylx-BF-Daw"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="zPq-N1-lLf" secondAttribute="trailing" id="5H1-uh-UeV"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="top" secondItem="zPq-N1-lLf" secondAttribute="top" id="bk3-NT-MDf"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="zPq-N1-lLf" secondAttribute="bottom" id="oiN-sy-ZbS"/>
+                <constraint firstItem="zPq-N1-lLf" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="ycX-XO-1fz"/>
+            </constraints>
+            <point key="canvasLocation" x="132" y="154"/>
+        </view>
+    </objects>
+    <designables>
+        <designable name="GvM-8Z-ym6">
+            <size key="intrinsicContentSize" width="61" height="30"/>
+        </designable>
+        <designable name="PjA-CI-Ywd">
+            <size key="intrinsicContentSize" width="144.5" height="26.5"/>
+        </designable>
+        <designable name="Sxd-yX-lme">
+            <size key="intrinsicContentSize" width="97.5" height="17"/>
+        </designable>
+        <designable name="dbE-D0-o2v">
+            <size key="intrinsicContentSize" width="41.5" height="18"/>
+        </designable>
+        <designable name="k6Y-k7-IZS">
+            <size key="intrinsicContentSize" width="33" height="30"/>
+        </designable>
+    </designables>
+    <resources>
+        <image name="Icon-GNB-Close" width="24" height="24"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray5Color">
+            <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

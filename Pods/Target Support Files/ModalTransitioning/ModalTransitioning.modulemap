@@ -1,0 +1,6 @@
+framework module ModalTransitioning {
+  umbrella header "ModalTransitioning-umbrella.h"
+
+  export *
+  module * { export * }
+}

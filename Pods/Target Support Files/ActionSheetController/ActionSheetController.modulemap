@@ -1,0 +1,6 @@
+framework module ActionSheetController {
+  umbrella header "ActionSheetController-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina5_9" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ImageSlideViewVC" customModule="Traystorage" customModuleProvider="target">
+            <connections>
+                <outlet property="imageSliderView" destination="uEd-Tt-0Tw" id="w4k-c7-g01"/>
+                <outlet property="pageIndicator" destination="kgR-Ey-2NI" id="O5J-zq-8jP"/>
+                <outlet property="view" destination="iN0-l3-epB" id="Ued-mn-doj"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KeF-Um-992" userLabel="root">
+                    <rect key="frame" x="0.0" y="44" width="375" height="734"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xbf-Hw-JNj" userLabel="header">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1/1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kgR-Ey-2NI" customClass="UIFontLabel" customModule="Traystorage" customModuleProvider="target">
+                                    <rect key="frame" x="178.66666666666666" y="21" width="18" height="18"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <nil key="highlightedColor"/>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="xFontSize">
+                                            <real key="value" value="15"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                </label>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jRk-BU-Ziu">
+                                    <rect key="frame" x="315" y="0.0" width="60" height="60"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" secondItem="jRk-BU-Ziu" secondAttribute="height" id="bfP-cB-BEJ"/>
+                                    </constraints>
+                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                    <state key="normal" image="Icon-GNB-Close-White"/>
+                                    <connections>
+                                        <action selector="onClickBack:" destination="-1" eventType="touchUpInside" id="opG-MN-ciV"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <constraints>
+                                <constraint firstItem="kgR-Ey-2NI" firstAttribute="centerX" secondItem="Xbf-Hw-JNj" secondAttribute="centerX" id="75L-yT-y9T"/>
+                                <constraint firstItem="kgR-Ey-2NI" firstAttribute="centerY" secondItem="Xbf-Hw-JNj" secondAttribute="centerY" id="S7D-9T-RmR"/>
+                                <constraint firstItem="jRk-BU-Ziu" firstAttribute="top" secondItem="Xbf-Hw-JNj" secondAttribute="top" id="WNU-sP-uNC"/>
+                                <constraint firstAttribute="bottom" secondItem="jRk-BU-Ziu" secondAttribute="bottom" id="fLB-4e-R0c"/>
+                                <constraint firstAttribute="height" constant="60" id="tKR-6U-byT"/>
+                                <constraint firstAttribute="trailing" secondItem="jRk-BU-Ziu" secondAttribute="trailing" id="xZF-wc-njQ"/>
+                            </constraints>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="F61-gw-cY3" userLabel="content">
+                            <rect key="frame" x="0.0" y="60" width="375" height="674"/>
+                            <subviews>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uEd-Tt-0Tw" customClass="ImageSlideshow" customModule="ImageSlideshow">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="674"/>
+                                </view>
+                            </subviews>
+                            <constraints>
+                                <constraint firstAttribute="bottom" secondItem="uEd-Tt-0Tw" secondAttribute="bottom" id="50c-Yc-MXj"/>
+                                <constraint firstAttribute="trailing" secondItem="uEd-Tt-0Tw" secondAttribute="trailing" id="TAK-X3-frO"/>
+                                <constraint firstItem="uEd-Tt-0Tw" firstAttribute="leading" secondItem="F61-gw-cY3" secondAttribute="leading" id="Ziv-d0-pYh"/>
+                                <constraint firstItem="uEd-Tt-0Tw" firstAttribute="top" secondItem="F61-gw-cY3" secondAttribute="top" id="bJ0-OK-cd5"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <gestureRecognizers/>
+                    <constraints>
+                        <constraint firstItem="F61-gw-cY3" firstAttribute="leading" secondItem="KeF-Um-992" secondAttribute="leading" id="Eey-Mb-vJW"/>
+                        <constraint firstAttribute="trailing" secondItem="Xbf-Hw-JNj" secondAttribute="trailing" id="KlZ-Di-9He"/>
+                        <constraint firstItem="Xbf-Hw-JNj" firstAttribute="leading" secondItem="KeF-Um-992" secondAttribute="leading" id="Xad-YF-0MW"/>
+                        <constraint firstItem="Xbf-Hw-JNj" firstAttribute="top" secondItem="KeF-Um-992" secondAttribute="top" id="YvR-YW-g1z"/>
+                        <constraint firstAttribute="trailing" secondItem="F61-gw-cY3" secondAttribute="trailing" id="cGj-dD-ZUV"/>
+                        <constraint firstAttribute="bottom" secondItem="F61-gw-cY3" secondAttribute="bottom" id="djf-8b-lkT"/>
+                        <constraint firstItem="F61-gw-cY3" firstAttribute="top" secondItem="Xbf-Hw-JNj" secondAttribute="bottom" id="gkl-cU-D4l"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <gestureRecognizers/>
+            <constraints>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="KeF-Um-992" secondAttribute="bottom" id="6AD-XR-JAX"/>
+                <constraint firstItem="KeF-Um-992" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="YhB-sD-3nr"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="top" secondItem="KeF-Um-992" secondAttribute="top" id="ZXs-eI-bLY"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="KeF-Um-992" secondAttribute="trailing" id="cmn-Ex-Dk1"/>
+            </constraints>
+            <point key="canvasLocation" x="132" y="136"/>
+        </view>
+    </objects>
+    <designables>
+        <designable name="kgR-Ey-2NI">
+            <size key="intrinsicContentSize" width="18" height="18"/>
+        </designable>
+    </designables>
+    <resources>
+        <image name="Icon-GNB-Close-White" width="24" height="24"/>
+    </resources>
+</document>

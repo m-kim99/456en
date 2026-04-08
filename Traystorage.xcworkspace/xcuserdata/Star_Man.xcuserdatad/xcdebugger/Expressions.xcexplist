@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "closure #1 in SignupPage2VC.sendPhoneAuth(_:):SignupPage2VC.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "result!.code">
+            </PersistentString>
+            <PersistentString
+               value = "self?.authCode">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "DocumentNFCRegisterVC.getDimLink():DocumentNFCRegisterVC.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "documentID">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "IntroVC.onSignupSNS(_:):IntroVC.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "sender.tag">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "closure #1 in closure #2 in DocumentNFCRegisterVC.readerSession(_:didDetect:):DocumentNFCRegisterVC.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "documentCode">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "closure #1 in DocumentNFCRegisterVC.getDimLink():DocumentNFCRegisterVC.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "url!.absoluteString">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "LoginVC.onLoginSuccess(user:password:):LoginVC.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "Rest">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "SignupCompleteVC.makeProfile():SignupCompleteVC.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "params">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "SignupPage2VC.verifyCode(_:):SignupPage2VC.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "authCode">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "DocumentDetailVC.onClickNFCRegister(_:):DocumentDetailVC.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "document!.code1">
+            </PersistentString>
+            <PersistentString
+               value = "document!.doc_id">
+            </PersistentString>
+            <PersistentString
+               value = "document!.code">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "IntroVC.onGetVersionSuccess(_:):IntroVC.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "latestVersion.version">
+            </PersistentString>
+            <PersistentString
+               value = "curVersion.compare(latestVersion.version, options: .numeric)">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "closure #1 in DocumentDetailVC.loadDocumentDetail(_:):DocumentDetailVC.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "document.code">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "ModelBase.init(_:):ModelBase.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "reason">
+            </PersistentString>
+            <PersistentString
+               value = "code">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>

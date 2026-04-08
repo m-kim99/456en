@@ -1,0 +1,13 @@
+{
+  "images" : [
+    {
+      "filename" : "img_intro_logo_text.png",
+      "idiom" : "universal",
+      "scale" : "1x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
