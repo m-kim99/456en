@@ -423,9 +423,6 @@ extension IntroVC: BaseNavigation {
                 let snsId = user?.userID
                 self.snsLogin(_id: snsId!, _pwd: snsId!, _type: 1)
             }
-        } else if sender.tag == 2 {
-            // facebook
-            snsManager.start(type: .Facebook)
         } else if sender.tag == 3 {
             // naver
             snsManager.start(type: .Naver)
@@ -615,9 +612,6 @@ extension IntroVC: SnsManagerDelegate {
             snsId = me.user_sns_id
         case .Kakao?:
             type = 5
-            snsId = me.user_sns_id
-        case .Facebook?:
-            type = 3
             snsId = me.user_sns_id
         case .Google?:
             type = 1

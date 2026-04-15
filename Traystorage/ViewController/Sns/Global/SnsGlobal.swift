@@ -18,7 +18,6 @@ var gMeInfo = SnsUserInfo()
 public enum SnsType: Int {
   case Naver = 1
   case Kakao = 2
-  case Facebook = 3
   case Google = 4
   
   var value: Int {

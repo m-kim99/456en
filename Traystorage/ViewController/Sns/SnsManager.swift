@@ -84,10 +84,6 @@ class SnsManager {
         case .Google?:
             // mGoogleUtil.logout()
             mNaverUtil.logout()
-        case .Facebook?:
-            print("facebook null")
-            // default:
-        // sns_type_str = "Unknown"
         case .none:
             print("no Unknown")
         }
@@ -106,8 +102,6 @@ class SnsManager {
             sns_type_str = "네이버"
         case .Google?:
             sns_type_str = "구글"
-        case .Facebook?:
-            sns_type_str = "페이스북"
         default:
             sns_type_str = "Unknown"
         }

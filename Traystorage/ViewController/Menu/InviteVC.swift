@@ -25,7 +25,7 @@ class InviteVC: BaseVC {
         let textToShare = [text]
         let activityViewController = UIActivityViewController(activityItems: textToShare, applicationActivities: nil)
         activityViewController.popoverPresentationController?.sourceView = self.view // so that iPads won't crash
-        activityViewController.excludedActivityTypes = [UIActivity.ActivityType.airDrop, UIActivity.ActivityType.postToFacebook]
+        activityViewController.excludedActivityTypes = [UIActivity.ActivityType.airDrop]
         self.present(activityViewController, animated: true, completion: nil)
     }
 }

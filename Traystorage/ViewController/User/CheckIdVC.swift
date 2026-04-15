@@ -22,9 +22,6 @@ class CheckIdVC: BaseVC {
         case 2:
             lblLoginID.text = "naver signuped"
             break
-        case 3:
-            lblLoginID.text = "facebook signuped"
-            break
         case 4:
             lblLoginID.text = "kakaos signuped"
             break

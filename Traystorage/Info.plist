@@ -4,6 +4,8 @@
 <dict>
 	<key>CFBundleAllowMixedLocalizations</key>
 	<true/>
+	<key>CFBundleDisplayName</key>
+	<string>TrayStorage View(EN)</string>
 	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>
@@ -28,14 +30,6 @@
 			<key>CFBundleURLSchemes</key>
 			<array>
 				<string>kakaoc632865d33474ca842c85b4bb76c69d2</string>
-			</array>
-		</dict>
-		<dict>
-			<key>CFBundleTypeRole</key>
-			<string>Editor</string>
-			<key>CFBundleURLSchemes</key>
-			<array>
-				<string>fb1080939866382480</string>
 			</array>
 		</dict>
 		<dict>
@@ -67,10 +61,6 @@
 			</array>
 		</dict>
 	</array>
-	<key>FacebookAppID</key>
-	<string>1080939866382480</string>
-	<key>FacebookDisplayName</key>
-	<string>traystorage</string>
 	<key>KAKAO_APP_KEY</key>
 	<string>c632865d33474ca842c85b4bb76c69d2</string>
 	<key>NFCReaderUsageDescription</key>
@@ -128,23 +118,6 @@
 		<string>productpay</string>
 		<string>localpay</string>
 		<string>nmap</string>
-		<string>fbapi</string>
-		<string>fb-messenger-share-api</string>
-		<string>fbapi20130214</string>
-		<string>fbapi20130410</string>
-		<string>fbapi20130702</string>
-		<string>fbapi20131010</string>
-		<string>fbapi20131219</string>
-		<string>fbapi20140410</string>
-		<string>fbapi20140116</string>
-		<string>fbapi20150313</string>
-		<string>fbapi20150629</string>
-		<string>fbapi20160328</string>
-		<string>fb-messenger-api</string>
-		<string>fb-messenger-api20140430</string>
-		<string>fbauth2</string>
-		<string>fbauth</string>
-		<string>fbshareextension</string>
 		<string>googlechromes</string>
 		<string>comgooglemaps</string>
 	</array>
