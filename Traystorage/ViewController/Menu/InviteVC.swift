@@ -3,7 +3,7 @@
 //  Traystorage
 //
 
-import Foundation
+import UIKit
 
 class InviteVC: BaseVC {
     override func viewDidLoad() {

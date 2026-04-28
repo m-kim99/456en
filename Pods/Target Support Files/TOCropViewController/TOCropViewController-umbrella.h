@@ -14,6 +14,7 @@
 #import "TOCropViewConstants.h"
 #import "TOActivityCroppedImageProvider.h"
 #import "TOCroppedImageAttributes.h"
+#import "TOCropViewControllerAspectRatioPreset.h"
 #import "TOCropViewControllerTransitioning.h"
 #import "TOCropViewController.h"
 #import "TOCropOverlayView.h"

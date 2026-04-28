@@ -17,7 +17,9 @@ open class SKPhotoBrowser: UIViewController {
     open var initPageIndex: Int = 0
     open var activityItemProvider: UIActivityItemProvider?
     open var photos: [SKPhotoProtocol] = []
-
+	open var autoHideControllsfadeOutDelay: Double = 4.0
+    open var shouldAutoHideControlls: Bool = true
+    
     public var toolActionButton: UIBarButtonItem {
         return toolbar.toolActionButton
     }
@@ -86,7 +88,7 @@ open class SKPhotoBrowser: UIViewController {
     public convenience init(photos: [SKPhotoProtocol], initialPageIndex: Int) {
         self.init(nibName: nil, bundle: nil)
         self.photos = photos
-        self.photos.forEach { $0.checkCache() }
+        //self.photos.forEach { $0.checkCache() }
         self.currentPageIndex = min(initialPageIndex, photos.count - 1)
         self.initPageIndex = self.currentPageIndex
         animator.senderOriginImage = photos[currentPageIndex].underlyingImage
@@ -252,7 +254,7 @@ open class SKPhotoBrowser: UIViewController {
             self.hideControlsAfterDelay()
             self.activityViewController = nil
         }
-        if UI_USER_INTERFACE_IDIOM() == .phone {
+        if SKMesurement.isPhone {
             present(activityViewController, animated: true, completion: nil)
         } else {
             activityViewController.modalPresentationStyle = .popover
@@ -325,10 +327,12 @@ public extension SKPhotoBrowser {
     }
     
     func hideControlsAfterDelay() {
+        // Hide controlls only if it is configured to hide automatically
+        guard shouldAutoHideControlls else { return }
         // reset
         cancelControlHiding()
         // start
-        controlVisibilityTimer = Timer.scheduledTimer(timeInterval: 4.0, target: self, selector: #selector(SKPhotoBrowser.hideControls(_:)), userInfo: nil, repeats: false)
+        controlVisibilityTimer = Timer.scheduledTimer(timeInterval: autoHideControllsfadeOutDelay, target: self, selector: #selector(SKPhotoBrowser.hideControls(_:)), userInfo: nil, repeats: false)
     }
     
     func hideControls() {
@@ -396,11 +400,16 @@ internal extension SKPhotoBrowser {
                 return 15
             }
         }()
-        return view.bounds.divided(atDistance: 44, from: .maxYEdge).slice.offsetBy(dx: 0, dy: -offset)
-    }
-    
-    func frameForToolbarHideAtOrientation() -> CGRect {
-        return view.bounds.divided(atDistance: 44, from: .maxYEdge).slice.offsetBy(dx: 0, dy: 44)
+        
+        let height: CGFloat = {
+            if #available(iOS 26.0, *) {
+                return 48
+            } else {
+                return 44
+            }
+        }()
+        
+        return view.bounds.divided(atDistance: height, from: .maxYEdge).slice.offsetBy(dx: 0, dy: -offset)
     }
     
     func frameForPaginationAtOrientation() -> CGRect {
@@ -495,7 +504,7 @@ internal extension SKPhotoBrowser {
                 }))
             }
             
-            if UI_USER_INTERFACE_IDIOM() == .phone {
+            if SKMesurement.isPhone {
                 present(actionSheetController, animated: true, completion: nil)
             } else {
                 actionSheetController.modalPresentationStyle = .popover
@@ -549,6 +558,10 @@ private extension SKPhotoBrowser {
     func configurePagingScrollView() {
         pagingScrollView.delegate = self
         view.addSubview(pagingScrollView)
+        
+        if SKPhotoBrowserOptions.protectScreenshot {
+            paginationView.protectScreenshot()
+        }
     }
 
     func configureGestureControl() {

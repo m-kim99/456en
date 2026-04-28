@@ -1,7 +1,7 @@
 //
 //  TOCropScrollView
 //
-//  Copyright 2015-2022 Timothy Oliver. All rights reserved.
+//  Copyright 2015-2025 Timothy Oliver. All rights reserved.
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to
@@ -24,27 +24,24 @@
 
 @implementation TOCropScrollView
 
-- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
-{
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     if (self.touchesBegan)
         self.touchesBegan();
-        
+
     [super touchesBegan:touches withEvent:event];
 }
 
-- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
-{
+- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
     if (self.touchesEnded)
         self.touchesEnded();
-    
+
     [super touchesEnded:touches withEvent:event];
 }
 
-- (void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event
-{
+- (void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event {
     if (self.touchesCancelled)
         self.touchesCancelled();
-    
+
     [super touchesCancelled:touches withEvent:event];
 }
 

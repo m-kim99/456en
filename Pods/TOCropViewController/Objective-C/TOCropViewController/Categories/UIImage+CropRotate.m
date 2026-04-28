@@ -1,7 +1,7 @@
 //
 //  UIImage+CropRotate.m
 //
-//  Copyright 2015-2022 Timothy Oliver. All rights reserved.
+//  Copyright 2015-2025 Timothy Oliver. All rights reserved.
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to
@@ -24,19 +24,20 @@
 
 @implementation UIImage (CropRotate)
 
-- (BOOL)hasAlpha
-{
+- (BOOL)hasAlpha {
     CGImageAlphaInfo alphaInfo = CGImageGetAlphaInfo(self.CGImage);
     return (alphaInfo == kCGImageAlphaFirst || alphaInfo == kCGImageAlphaLast ||
             alphaInfo == kCGImageAlphaPremultipliedFirst || alphaInfo == kCGImageAlphaPremultipliedLast);
 }
 
-- (UIImage *)croppedImageWithFrame:(CGRect)frame angle:(NSInteger)angle circularClip:(BOOL)circular
-{
-    UIImage *croppedImage = nil;
-    UIGraphicsBeginImageContextWithOptions(frame.size, !self.hasAlpha && !circular, self.scale);
-    {
-        CGContextRef context = UIGraphicsGetCurrentContext();
+- (UIImage *)croppedImageWithFrame:(CGRect)frame angle:(NSInteger)angle circularClip:(BOOL)circular {
+    UIGraphicsImageRendererFormat *format = [UIGraphicsImageRendererFormat new];
+    format.opaque = !self.hasAlpha && !circular;
+    format.scale = self.scale;
+
+    UIGraphicsImageRenderer *renderer = [[UIGraphicsImageRenderer alloc] initWithSize:frame.size format:format];
+    UIImage *croppedImage = [renderer imageWithActions:^(UIGraphicsImageRendererContext *rendererContext) {
+        CGContextRef context = rendererContext.CGContext;
 
         // If we're capturing a circular image, set the clip mask first
         if (circular) {
@@ -50,7 +51,7 @@
         // If an angle was supplied, rotate the entire canvas + coordinate space to match
         if (angle != 0) {
             // Rotation in radians
-            CGFloat rotation = angle * (M_PI/180.0f);
+            CGFloat rotation = angle * (M_PI / 180.0f);
 
             // Work out the new bounding size of the canvas after rotation
             CGRect imageBounds = (CGRect){CGPointZero, self.size};
@@ -68,10 +69,7 @@
         // We do not need to worry about specifying the size here since we're already
         // constrained by the context image size
         [self drawAtPoint:CGPointZero];
-        
-        croppedImage = UIGraphicsGetImageFromCurrentImageContext();
-    }
-    UIGraphicsEndImageContext();
+    }];
 
     // Re-apply the retina scale we originally had
     return [UIImage imageWithCGImage:croppedImage.CGImage scale:self.scale orientation:UIImageOrientationUp];

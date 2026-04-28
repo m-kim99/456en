@@ -31,7 +31,8 @@ NS_ASSUME_NONNULL_BEGIN
  * @abstract A class that checks for pending Dynamic Links and parses URLs.
  *     This class is available on iOS only.
  */
-
+DEPRECATED_MSG_ATTRIBUTE(
+    "Firebase Dynamic Links is deprecated and the service will shut down on August 25, 2025.")
 NS_EXTENSION_UNAVAILABLE_IOS("Firebase Dynamic Links is not supported for iOS extensions.")
 API_UNAVAILABLE(macos, tvos, watchos)
 NS_SWIFT_NAME(DynamicLinks)
@@ -80,7 +81,8 @@ NS_SWIFT_NAME(DynamicLinks)
  * universal link URL.
  */
 - (void)dynamicLinkFromUniversalLinkURL:(NSURL *)url
-                             completion:(FIRDynamicLinkUniversalLinkHandler)completion
+                             completion:(void (^)(FIRDynamicLink *_Nullable dynamicLink,
+                                                  NSError *_Nullable error))completion
     NS_SWIFT_NAME(dynamicLink(fromUniversalLink:completion:));
 
 /**
@@ -104,7 +106,9 @@ NS_SWIFT_NAME(DynamicLinks)
  * @param completion A block that handles the outcome of attempting to create a FIRDynamicLink.
  * @return YES if FIRDynamicLinks is handling the link, otherwise, NO.
  */
-- (BOOL)handleUniversalLink:(NSURL *)url completion:(FIRDynamicLinkUniversalLinkHandler)completion;
+- (BOOL)handleUniversalLink:(NSURL *)url
+                 completion:(void (^)(FIRDynamicLink *_Nullable dynamicLink,
+                                      NSError *_Nullable error))completion;
 
 /**
  * @method resolveShortLink:completion:
@@ -112,7 +116,8 @@ NS_SWIFT_NAME(DynamicLinks)
  * @param url A Short Dynamic Link.
  * @param completion Block to be run upon completion.
  */
-- (void)resolveShortLink:(NSURL *)url completion:(FIRDynamicLinkResolverHandler)completion;
+- (void)resolveShortLink:(NSURL *)url
+              completion:(void (^)(NSURL *_Nullable url, NSError *_Nullable error))completion;
 
 /**
  * @method matchesShortLinkFormat:

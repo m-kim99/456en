@@ -50,16 +50,6 @@
 				<string>com.googleusercontent.apps.1014352638153-ujrmupt1pi52nh46vgkqvol8e6g8gl7n</string>
 			</array>
 		</dict>
-		<dict>
-			<key>CFBundleURLName</key>
-			<string></string>
-			<key>CFBundleTypeRole</key>
-			<string>Editor</string>
-			<key>CFBundleURLSchemes</key>
-			<array>
-				<string>com.googleusercontent.apps.1014352638153-ujrmupt1pi52nh46vgkqvol8e6g8gl7n</string>
-			</array>
-		</dict>
 	</array>
 	<key>KAKAO_APP_KEY</key>
 	<string>c632865d33474ca842c85b4bb76c69d2</string>
@@ -155,5 +145,7 @@
 			</array>
 		</dict>
 	</dict>
+	<key>UIStatusBarStyle</key>
+	<string>UIStatusBarStyleDefault</string>
 </dict>
 </plist>

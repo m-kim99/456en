@@ -413,15 +413,15 @@ extension IntroVC: BaseNavigation {
         } else if sender.tag == 1 {
             // google
 //             snsManager.start(type: .Google)
-            //guard let clientID = FirebaseApp.app()?.options.clientID else { return }
-            let config = GIDConfiguration(clientID: GOOGLEKEY)
-            GIDSignIn.sharedInstance.signIn(with: config, presenting: self) { user, error in
+            guard let clientID = FirebaseApp.app()?.options.clientID else { return }
+            GIDSignIn.sharedInstance.configuration = GIDConfiguration(clientID: clientID)
+            GIDSignIn.sharedInstance.signIn(withPresenting: self) { [weak self] result, error in
                 if let error = error {
-                    self.view.showToast("구글정보를 얻어올수 없습니다.")
+                    self?.view.showToast("구글정보를 얻어올수 없습니다.")
                     return
                 }
-                let snsId = user?.userID
-                self.snsLogin(_id: snsId!, _pwd: snsId!, _type: 1)
+                let snsId = result?.user.userID
+                self?.snsLogin(_id: snsId!, _pwd: snsId!, _type: 1)
             }
         } else if sender.tag == 3 {
             // naver

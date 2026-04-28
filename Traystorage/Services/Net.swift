@@ -34,10 +34,11 @@ class Net {
         print("\n\(url)")
         print(params)
         
-        let manager = Alamofire.SessionManager.default
-        manager.session.configuration.timeoutIntervalForRequest = 15
+        let httpHeaders = HTTPHeaders(header.map { HTTPHeader(name: $0.key, value: $0.value) })
         
-        Alamofire.request(url, method: method, parameters: params, encoding: URLEncoding.default, headers: header).responseString { response in // .URLEncoding JSONEncoding
+        AF.request(url, method: method, parameters: params, encoding: URLEncoding.default, headers: httpHeaders) { urlRequest in
+            urlRequest.timeoutInterval = 15
+        }.responseString { response in
             switch response.result {
             case .failure(let error):
                 if let failure = failure {
@@ -100,7 +101,7 @@ class Net {
         print(url)
         print(params ?? "params:")
         
-        Alamofire.upload(multipartFormData: { MultipartFormData in
+        AF.upload(multipartFormData: { MultipartFormData in
             if imgArray.count > 0 {
                 for i in 0...imgArray.count - 1 {
                     var strName = imgMark
@@ -131,53 +132,51 @@ class Net {
                 let data = JSON(value).stringValue
                 MultipartFormData.append(data.data(using: String.Encoding.utf8)!, withName: key)
             }
-        }, to: url, method: method, encodingCompletion: { encodingResult in
-            switch encodingResult {
+        }, to: url, method: method)
+        .uploadProgress { progress in
+            print("Upload Progress: \(progress.fractionCompleted)")
+        }
+        .responseString { response in
+            switch response.result {
             case .failure(let error):
                 if let failure = failure {
                     print("\nAPI Call Failed!\nURL : \(url)\nError : \(error.localizedDescription)")
                     failure(999, "server_connect_fail".localized)
                 }
+            case .success(let result):
+                guard !result.isEmpty else {
+                    if let failure = failure {
+                        failure(-900, "Failed to parse server response(invalid object)")
+                    }
+                    return
+                }
+
+                print(result)
                 
-            case .success(let upload, _, _):
-                upload.uploadProgress(closure: { progress in
-                    print("Upload Progress: \(progress.fractionCompleted)")
-                })
-                upload.responseString { response in
-                    guard let result = response.result.value, !result.isEmpty else {
+                let res = JSON(result.data(using: .utf8)! as Any)
+                print(res)
+                
+                let code = res["result"].intValue
+                let msg = res["msg"].stringValue
+                let data = res["data"]
+                
+                if code == 0 {
+                    do {
+                        let model = try ParseResponse(api: api, json: data)
+                        if let success = success {
+                            success(model)
+                        }
+                    } catch _ {
                         if let failure = failure {
                             failure(-900, "Failed to parse server response(invalid object)")
                         }
-                        return
                     }
-
-                    print(result)
-                    
-                    let res = JSON(result.data(using: .utf8)! as Any)
-                    print(res)
-                    
-                    let code = res["result"].intValue
-                    let msg = res["msg"].stringValue
-                    let data = res["data"]
-                    
-                    if code == 0 {
-                        do {
-                            let model = try ParseResponse(api: api, json: data)
-                            if let success = success {
-                                success(model)
-                            }
-                        } catch _ {
-                            if let failure = failure {
-                                failure(-900, "Failed to parse server response(invalid object)")
-                            }
-                        }
-                    } else {
-                        if let failure = failure {
-                            failure(code, msg)
-                        }
+                } else {
+                    if let failure = failure {
+                        failure(code, msg)
                     }
                 }
             }
-        })
+        }
     }
 }

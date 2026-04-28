@@ -9,6 +9,8 @@ import UIKit
 import NaverThirdPartyLogin
 import GoogleSignIn
 import FirebaseDynamicLinks
+import KakaoSDKCommon
+import KakaoSDKAuth
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -19,7 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
 
         let thirdConn: NaverThirdPartyLoginConnection = NaverThirdPartyLoginConnection.getSharedInstance()
-        thirdConn.isNaverAppOauthEnable = true
+        thirdConn.isNaverAppOauthEnable = false
         thirdConn.isInAppOauthEnable = true
         thirdConn.setOnlyPortraitSupportInIphone(true)
         thirdConn.serviceUrlScheme = kServiceAppUrlScheme
@@ -28,6 +30,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         thirdConn.setOnlyPortraitSupportInIphone(true)
         
         FirebaseApp.configure()
+        
+        // Kakao SDK 초기화
+        let kakaoAppKey = Bundle.main.infoDictionary?["KAKAO_APP_KEY"] as? String ?? ""
+        KakaoSDK.initSDK(appKey: kakaoAppKey)
         
         return true
     }
@@ -42,13 +48,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
-        if let dynamicLink = DynamicLinks.dynamicLinks().dynamicLink(fromCustomSchemeURL: url) {
+        if let _ = DynamicLinks.dynamicLinks().dynamicLink(fromCustomSchemeURL: url) {
             return true
         }
         
         // kakao
-        if KOSession.isKakaoAccountLoginCallback(url) {
-            return KOSession.handleOpen(url)
+        if AuthApi.isKakaoTalkLoginUrl(url) {
+            return AuthController.handleOpenUrl(url: url)
         }
         
         return true
@@ -56,24 +62,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey: Any] = [:]) -> Bool {
         // kakao
-        if KOSession.isKakaoAccountLoginCallback(url) {
-            return KOSession.handleOpen(url)
+        if AuthApi.isKakaoTalkLoginUrl(url) {
+            return AuthController.handleOpenUrl(url: url)
         }
         
+        // 네이버 로그인 처리
         NaverThirdPartyLoginConnection.getSharedInstance()?.application(app, open: url, options: options)
+        
+        // Google Sign In 처리
         return GIDSignIn.sharedInstance.handle(url)
     }
        
     func application(_ application: UIApplication, handleOpen url: URL) -> Bool {
         // kakao
-        if KOSession.isKakaoAccountLoginCallback(url as URL) {
-            return KOSession.handleOpen(url as URL)
+        if AuthApi.isKakaoTalkLoginUrl(url) {
+            return AuthController.handleOpenUrl(url: url)
         }
         return false
-    }
-       
-    func applicationDidBecomeActive(_ application: UIApplication) {
-        KOSession.handleDidBecomeActive()
     }
        
     // [START receive_message]
@@ -115,9 +120,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let handled = DynamicLinks.dynamicLinks()
             .handleUniversalLink(userActivity.webpageURL!) { dynamiclink, error in
                 if error != nil {
-                    print(error)
+                    print(error as Any)
                 }
-                print(dynamiclink)
+                print(dynamiclink as Any)
             }
 
         return handled
