@@ -23,11 +23,6 @@ class ContactusVC: BaseVC {
     }
     
     func initVC() {
-        tfSubject.attributedPlaceholder = NSAttributedString(
-            string: "Please enter your inquiry title",
-            attributes: [NSAttributedString.Key.foregroundColor: UIColor(hex: 0x999999)]
-        )
-        vwDetailHint.textColor = UIColor(hex: 0x999999)
     }
     
     override func hideKeyboard() {

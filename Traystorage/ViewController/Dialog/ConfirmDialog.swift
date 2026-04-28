@@ -105,6 +105,29 @@ class ConfirmDialog: UIViewController {
         vwBg.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.onClickNo(_:))))
         
         vwRoot.frame = UIScreen.main.bounds
+        
+        styleButtonsAsTextOnly()
+    }
+    
+    private func styleButtonsAsTextOnly() {
+        // Android-style: text-only buttons, no background/border
+        // Confirm: #1E319D, 16sp, bold
+        btnYes.backgroundColor = .clear
+        btnYes.layer.borderWidth = 0
+        btnYes.layer.cornerRadius = 0
+        let confirmColor = UIColor(red: 30.0/255.0, green: 49.0/255.0, blue: 157.0/255.0, alpha: 1.0)
+        btnYes.setTitleColor(confirmColor, for: .normal)
+        btnYes.tintColor = confirmColor
+        btnYes.titleLabel?.font = AppFont.createBoldFont(name: AppFont.fontFamilyName, size: 16)
+        
+        // Cancel: #6B6C6E, 16sp, regular
+        btnCancel.backgroundColor = .clear
+        btnCancel.layer.borderWidth = 0
+        btnCancel.layer.cornerRadius = 0
+        let cancelColor = UIColor(red: 107.0/255.0, green: 108.0/255.0, blue: 110.0/255.0, alpha: 1.0)
+        btnCancel.setTitleColor(cancelColor, for: .normal)
+        btnCancel.tintColor = cancelColor
+        btnCancel.titleLabel?.font = AppFont.createFont(name: AppFont.fontFamilyName, size: 16)
     }
     
     override func didReceiveMemoryWarning() {

@@ -42,7 +42,7 @@ class DocumentNFCRegisterVC: BaseVC, NFCNDEFReaderSessionDelegate {
         if tags.count > 1 {
             // Restart polling in 500 milliseconds.
             let retryInterval = DispatchTimeInterval.milliseconds(500)
-            session.alertMessage = "More than 1 tag is detected. Please remove all tags and try again."
+            session.alertMessage = "Multiple tags detected. Please remove all tags and try again."
             DispatchQueue.global().asyncAfter(deadline: .now() + retryInterval) {
                 session.restartPolling()
             }
@@ -60,17 +60,17 @@ class DocumentNFCRegisterVC: BaseVC, NFCNDEFReaderSessionDelegate {
 
             tag.queryNDEFStatus(completionHandler: { [self] (ndefStatus: NFCNDEFStatus, _: Int, error: Error?) in
                 guard error == nil else {
-                    session.alertMessage = "Unable to query the NDEF status of tag."
+                    session.alertMessage = "Unable to read the NFC tag status."
                     session.invalidate()
                     return
                 }
 
                 switch ndefStatus {
                 case .notSupported:
-                    session.alertMessage = "Tag is not NDEF compliant."
+                    session.alertMessage = "This tag is not supported."
                     session.invalidate()
                 case .readOnly:
-                    session.alertMessage = "Tag is read only."
+                    session.alertMessage = "This tag is read-only."
                     session.invalidate()
                 case .readWrite:
 
@@ -109,7 +109,7 @@ class DocumentNFCRegisterVC: BaseVC, NFCNDEFReaderSessionDelegate {
                         if error != nil {
                             session.alertMessage = "Write NDEF message fail: \(error!)"
                         } else {
-                            session.alertMessage = "The document has been registered with the NFC tag."
+                            session.alertMessage = "Document registered to the NFC tag successfully."
                             DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
                                 self.popVC()
                             }
@@ -117,7 +117,7 @@ class DocumentNFCRegisterVC: BaseVC, NFCNDEFReaderSessionDelegate {
                         session.invalidate()
                     })
                 @unknown default:
-                    session.alertMessage = "Unknown NDEF tag status."
+                    session.alertMessage = "Unknown NFC tag status."
                     session.invalidate()
                 }
             })

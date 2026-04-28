@@ -18,7 +18,6 @@ class MyProfileVC: BaseVC {
     @IBOutlet var maleButton: UIButton!
     @IBOutlet var femaleButton: UIButton!
     @IBOutlet var saveButton: UIButton!
-    private var privateButton: UIButton!
     private var headerEditButton: UIButton!
     
     var gender: Int = 0
@@ -57,7 +56,6 @@ class MyProfileVC: BaseVC {
         emailEdit.text = user.email
 
         gender = user.gender
-        setupPrivateGenderButton()
         updateGender()
         
         NotificationCenter.default.addObserver(self, selector: #selector(imgPick(_:)), name: NSNotification.Name(rawValue: "image_pick"), object: nil)
@@ -82,9 +80,6 @@ class MyProfileVC: BaseVC {
         emailEdit.isEnabled = isNameEditing
         maleButton.isUserInteractionEnabled = isNameEditing
         femaleButton.isUserInteractionEnabled = isNameEditing
-        if privateButton != nil {
-            privateButton.isUserInteractionEnabled = isNameEditing
-        }
         saveButton.isEnabled = isNameEditing
         saveButton.isHidden = !isNameEditing
         
@@ -122,34 +117,14 @@ class MyProfileVC: BaseVC {
         }
     }
     
-    private func setupPrivateGenderButton() {
-        privateButton = UIButton(type: .system)
-        privateButton.setTitle("Private", for: .normal)
-        privateButton.titleLabel?.font = UIFont(name: "AppleSDGothicNeo-Regular", size: 15)
-        privateButton.layer.cornerRadius = 20
-        privateButton.layer.borderWidth = 1
-        privateButton.contentEdgeInsets = UIEdgeInsets(top: 0, left: 8, bottom: 0, right: 8)
-        privateButton.translatesAutoresizingMaskIntoConstraints = false
-        privateButton.isUserInteractionEnabled = false
-        privateButton.addTarget(self, action: #selector(onClickGender(_:)), for: .touchUpInside)
-        
-        if let genderStack = maleButton.superview as? UIStackView {
-            genderStack.addArrangedSubview(privateButton)
-            privateButton.widthAnchor.constraint(equalToConstant: 80).isActive = true
-        }
-    }
-    
     private func updateGender() {
         let maleColor = gender == 0 ? AppColor.active : AppColor.gray
         let femaleColor = gender == 1 ? AppColor.active : AppColor.gray
-        let privateColor = gender == 2 ? AppColor.active : AppColor.gray
         
         maleButton.borderColor = maleColor
         maleButton.tintColor = maleColor
         femaleButton.borderColor = femaleColor
         femaleButton.tintColor = femaleColor
-        privateButton.layer.borderColor = privateColor.cgColor
-        privateButton.tintColor = privateColor
     }
     
     @objc func imgPick(_ notification : Notification) {
@@ -239,8 +214,6 @@ class MyProfileVC: BaseVC {
                 gender = 0
             } else if button == femaleButton {
                 gender = 1
-            } else {
-                gender = 2
             }
             updateGender()
             isModified = isModified || user.gender != gender

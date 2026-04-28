@@ -11,68 +11,68 @@
 "date_select"="Select date";
 
 // intro
-"intro_header1"="How can you organize\nthe documents that pile up\n like a mountain every day?";
-"intro_header2"="Easier storage and\nmanagement of complex documents";
-"update_version"="There is a new update.\nTry updating now.";
-"update"="update";
+"intro_header1"="How do you manage\nall the documents that\npile up every day?";
+"intro_header2"="Simple storage and\nmanagement for all your documents";
+"update_version"="A new update is available.\nUpdate now to get the latest features.";
+"update"="Update";
 "later"="Later";
 
 // (main)login/signup
-"start_header"="Easier storage and management of\ncomplex documents";
+"start_header"="Simple storage and management\nfor all your documents";
 
 // login
 "login_id_hint"="ID";
-"login_naver"="Login in with your Naver ID";
-"login_kakao"="Login in with your Kakao account";
-"login_apple"="Sign up with Apple";
-"login_header"="Easier storage and management of complex documents";
+"login_naver"="Log in with Naver";
+"login_kakao"="Log in with Kakao";
+"login_apple"="Sign in with Apple";
+"login_header"="Simple storage and management for all your documents";
 "auto_login"="Auto-Login";
 "find_id"="Find ID";
 "find_pwd"="Reset password";
 
-"login_suspend_title"="The administrator has permanently suspended your account.";
-"login_suspend_desc"="The administrator has permanently suspended your account for registering inappropriate documents.";
+"login_suspend_title"="Your account has been permanently suspended.";
+"login_suspend_desc"="Your account has been permanently suspended due to inappropriate document registration.";
 
-"login_faided_invalid_account"="Your ID does not exist or the password does not match.";
+"login_faided_invalid_account"="Invalid ID or password. Please try again.";
 
-"login_withdrawal_title"="Waiting for withdrawal.";
-"login_withdrawal_desc"="Would you like to cancel the withdrawal?";
+"login_withdrawal_title"="Account withdrawal pending.";
+"login_withdrawal_desc"="Would you like to cancel your withdrawal request?";
 
-"login_sns_signup_title"="You are an unregistered member.";
-"login_sns_signup_desc"="Would you like to sign up with the social media you logged in with?";
+"login_sns_signup_title"="No account found.";
+"login_sns_signup_desc"="Would you like to sign up using this social account?";
 
 // find id
-"find_id_desc" = "Authenticate with the smartphone number you used when signing up for membership";
-"phone_number"="Smartphone number";
-"phone_number_hint"="Please enter your smartphone number";
-"phone_auth_request"="Authentication request";
-"certification_number" = "Authentication number";
-"certification_number_hint" = "Please enter the authentication number";
-"resend_veri_code" = "Please resend the authentication number";
-"empty_phone_toast"="Please enter your smartphone number";
-"empty_phone_alert"="Please verify your smartphone number.";
-"verify_wrong"="Authentication number is incorrect.";
-"empty_cert_code_toast"="Please enter the authentication number.";
+"find_id_desc" = "Verify with the phone number you used to sign up";
+"phone_number"="Phone number";
+"phone_number_hint"="Enter your phone number";
+"phone_auth_request"="Send verification code";
+"certification_number" = "Verification code";
+"certification_number_hint" = "Enter the verification code";
+"resend_veri_code" = "Resend verification code";
+"empty_phone_toast"="Please enter your phone number.";
+"empty_phone_alert"="Please verify your phone number.";
+"verify_wrong"="The verification code is incorrect.";
+"empty_cert_code_toast"="Please enter the verification code.";
 
-"no_phone_title"="This is not a registered smartphone number..";
-"no_phone_desc"="Please check your smartphone number.";
+"no_phone_title"="This phone number is not registered.";
+"no_phone_desc"="Please check your phone number and try again.";
 
 
 // find pwd
-"find_pwd_desc"="Please authenticate with the email and smartphone number you signed up for membership with";
-"id_hint"="Please enter your ID";
+"find_pwd_desc"="Verify with the email and phone number you used to sign up";
+"id_hint"="Enter your ID";
 
 "empty_id_toast"="Please enter your ID.";
 "empty_id_alert"="Please check your ID.";
 "empty_name_toast"="Please enter your name.";
-"name_at_less_2_toast" = "Please enter your name at least 2 characters.";
+"name_at_less_2_toast" = "Name must be at least 2 characters.";
 "empty_email_toast"="Please enter your e-mail.";
 "invalid_email_toast"="The email format is incorrect.";
 
 
-"no_memeber_title"="This is not a registered smartphone number.";
-"no_memeber_desc"="Please check your ID or smartphone number.";
-"mismatch_cert_code_toast" = "The authentication code is incorrect.";
+"no_memeber_title"="This phone number is not registered.";
+"no_memeber_desc"="Please check your ID or phone number.";
+"mismatch_cert_code_toast" = "The verification code is incorrect.";
 
 // check id
 
@@ -86,62 +86,62 @@
 "password"="Password";
 "password_hint"="Password";
 "new_password_hint" = "6~20 characters (letters + numbers)";
-"password_confirm" = "Password Comfirm";
+"password_confirm" = "Confirm Password";
 "password_confirm_hint" = "Re-enter password";
 "duplicate_check" = "Duplicate check";
-"password_mismatch_confirm" = "The two passwords do not match.";
+"password_mismatch_confirm" = "Passwords do not match.";
 "empty_password_toast"="Please enter a password.";
-"less_password_toast"="Please enter a password of at least 6 characters.";
+"less_password_toast"="Password must be at least 6 characters.";
 
 // signup 1st screen
-"signup_detail_1"="Please enter your account\ninformation to sign up";
+"signup_detail_1"="Enter your account information\nto create an account";
 "signup_id" = "ID";
 "signup_id_hint" = "6~20 characters (letters + numbers)";
 "signup_id_empty_alert" = "Please enter your ID.";
-"signup_id_less4" = "Please enter at least 4 characters.";
-"signup_id_unique"="ID is available.";
-"signup_duplicated_id_title" = "Duplicate.";
-"signup_duplicated_id_detail" = "Please enter something else.";
-"signup_duplicated_phone"="This is a smartphone number that has already been registered.";
+"signup_id_less4" = "ID must be at least 4 characters.";
+"signup_id_unique"="This ID is available.";
+"signup_duplicated_id_title" = "ID already taken.";
+"signup_duplicated_id_detail" = "Please choose a different ID.";
+"signup_duplicated_phone"="This phone number is already registered.";
 
-"signup_check_id_req" = "Please check for duplicate ID.";
-"password_invalid"="Password must be 6 to 20 characters long.";
+"signup_check_id_req" = "Please check ID availability.";
+"password_invalid"="Password must be 6–20 characters.";
 
-"signup_cancel_alert_title" = "If you close the screen, membership signup will be stopped. ";
-"signup_cancel_alert_content" = "Would you like to stop membership signup?";
+"signup_cancel_alert_title" = "If you leave this page, your sign-up progress will be lost.";
+"signup_cancel_alert_content" = "Are you sure you want to cancel sign-up?";
 
 
 // signup 2nd screen
-"auth_request" = "Authentication request";
-"signup_phone_verify" = "Please use smartphone authentication\nor membership signup";
+"auth_request" = "Send verification code";
+"signup_phone_verify" = "Verify your phone number\nto complete sign-up";
 
-"signup_agree_detail"="Please agree to the terms and conditions to sign up for membership";
+"signup_agree_detail"="Please agree to the terms and conditions to sign up";
 
-"login_agree_detail"="TrayStorage The terms and conditions have changed.\nPlease agree to the terms and conditions.";
+"login_agree_detail"="The TrayStorage terms and conditions have been updated.\nPlease review and agree to continue.";
 
-"signup_phone_verify_success" = "A smartphone authentication request has been sent.";
+"signup_phone_verify_success" = "A verification code has been sent.";
 // signup 3rd screen
-"all_agree"="Full consent";
-"terms_of_use_required" = "Use terms and conditions (required)";
-"privacy_policy_required" = "Personal Information Handling Policy (required)";
-"signup_agree_view" = "view";
-"agree_view" = "detail";
+"all_agree"="Agree to all";
+"terms_of_use_required" = "Terms of Use (required)";
+"privacy_policy_required" = "Privacy Policy (required)";
+"signup_agree_view" = "View";
+"agree_view" = "Details";
 "agree_item_req_suffix"="(required)";
 
 
-"signup_agree_confrim_title"="Would you like to sign up for membership with your entered information?";
-"login_agree_confrim_title"="Would you like to register as a member with the information you entered?";
+"signup_agree_confrim_title"="Would you like to sign up with the information you entered?";
+"login_agree_confrim_title"="Would you like to continue with the information you entered?";
 
 // signup complete
-"signup_complete_title"="Registration of Traystorage\nmembership is complete";
-"signup_complete_desc"="Please use the service after\nentering your profile information";
-"signup_use_service"="Using the service";
+"signup_complete_title"="Welcome to Traystorage!\nYour account has been created.";
+"signup_complete_desc"="Please complete your profile\nto get started.";
+"signup_use_service"="Get Started";
 
-"signup_agree_alert_title"="Please agree to the required terms and conditions.";
+"signup_agree_alert_title"="Please agree to the required terms.";
 
 
 // password change
-"pwd_change_notify_title" = "Your password has been changed.";
+"pwd_change_notify_title" = "Password changed successfully.";
 "pwd_change_notify_login" = "Please log in with the changed password.";
 
 "all"="All";
@@ -150,33 +150,33 @@
 "name_hint"="Enter your name";
 "birthday"="Date of birth";
 "gender"="Gender";
-"contact"="contact";
+"contact"="Contact";
 
 // withdrawal
-"withdrawal_title"="Member withdrawal";
-"withdrawal_header"="Precautions for account deactivation and deletion";
-"withdrawal_request_button"="Member's withdrawal request";
-"withdrawal_confirm_title"="Do you really want to cancel your membership?\n(Need to check the notes)";
-"withdrawal_content" = "<b>Note<font color='red'>(required)</font></b><br/>
-Please note that your <font color='red'>your account cannot be recovered once </font>the withdrawal is completed.<br/><br/>
-App usage history (document history, NFC registration history, etc.) will be deleted when the withdrawal is completed and cannot be recovered.<br/><br/>
-<b>How to withdraw from membership</b><br/>
-To prevent illegal theft and disadvantages when withdrawing from membership, the smartphone authentication process which was used at membership signup is performed. After completing the smartphone authentication, the application for withdrawal of membership will be processed.<br/><br/>
-<b>Waiting period for withdrawal of membership</b><br/>
-There is a 14-day waiting period for withdrawal after completion of authentication, and you can cancel your withdrawal during the waiting period";
+"withdrawal_title"="Delete Account";
+"withdrawal_header"="Important information about account deletion";
+"withdrawal_request_button"="Request Account Deletion";
+"withdrawal_confirm_title"="Are you sure you want to delete your account?\n(Please review the notice below)";
+"withdrawal_content" = "<b>Notice<font color='red'> (required)</font></b><br/>
+Please note that <font color='red'>your account cannot be recovered once </font>the deletion is completed.<br/><br/>
+All app data (document history, NFC registration history, etc.) will be permanently deleted and cannot be recovered.<br/><br/>
+<b>Account deletion process</b><br/>
+For security purposes, phone verification is required before processing your account deletion request.<br/><br/>
+<b>Waiting period</b><br/>
+There is a 14-day waiting period after submitting your request. You can cancel the deletion during this period.";
 
 // withdrawal_result
-"withdrawal_result_1"="Member's withdrawal request has\nbeen completed";
-"withdrawal_result_2"="Date of application for withdrawal :";
-"withdrawal_result_3"="If you log in again within <font color='blue'>14 days, you can proceed with the recovery process for the with drawn membership.</font>";
+"withdrawal_result_1"="Account deletion request\nhas been submitted.";
+"withdrawal_result_2"="Request date:";
+"withdrawal_result_3"="If you log in again within <font color='blue'>14 days, you can cancel the deletion and recover your account.</font>";
 
 "new"="New";
 "inside"="Inside";
 "outside"="Outside";
 "reservation_possible"="Reservation possible";
 "no_reservation"="No reservation";
-"attender_info"="Attender info";
-"roll_check"="RollCheck";
+"attender_info"="Attendee info";
+"roll_check"="Roll Call";
 
 "cancel"="Cancel";
 "apply"="Apply";
@@ -191,26 +191,26 @@ There is a 14-day waiting period for withdrawal after completion of authenticati
 "male_female"="Male/Female";
 
 // main vc
-"doc_count"="Total Document";
+"doc_count"="Total Documents";
 "doc_gon"="Posts";
-"doc_reg_button"="+ Document registration";
-"document_empty_title"="There is no registered document.";
-"document_empty_desc"="Register documents easily and conveniently now, and\ntry managing and sharing them through NFC tags";
-"doc_empty_search"="Please input a search keyword.";
+"doc_reg_button"="+ Add Document";
+"document_empty_title"="No documents yet.";
+"document_empty_desc"="Add your documents now and\nmanage and share them via NFC tags.";
+"doc_empty_search"="Enter a search keyword.";
 "doc_deleted_toast"="The document has been deleted.";
-"doc_search_hint"="Please enter the search term.";
-"search_empty_title"="There are no search results\nfor";
+"doc_search_hint"="Search documents...";
+"search_empty_title"=" has no search results.";
 "search_result"="Search Results";
 
 // document detail
 "doc_detail"="Document details";
 "nfc_register"="NFC registration";
-"doc_del_query_title" = "If you delete a document,\nit will not be exposed to NFC tags.";
-"doc_del_query_desc" = "Are you sure you would like\nto delete this document?";
+"doc_del_query_title" = "Deleting this document will\nremove it from NFC tags as well.";
+"doc_del_query_desc" = "Are you sure you want to\ndelete this document?";
 
 // document register
 "doc_reg_title" = "Document registration";
-"doc_image" = "Document registration";
+"doc_image" = "Document image";
 "doc_image_add"="+Add";
 "doc_title_content" = "Title and content*";
 "doc_title_hint" = "Title";
@@ -218,12 +218,12 @@ There is a 14-day waiting period for withdrawal after completion of authenticati
 "doc_label" = "Label";
 "doc_tag" = "Tag";
 "doc_tag_hint" = "Enter Tags";
-"doc_tag_add" = "Registration";
+"doc_tag_add" = "Add";
 "doc_tag_deleted"="Tag has been deleted.";
-"doc_reg"="Registration";
-"doc_add_success_toast"="Documentation has been added.";
-"doc_discard_title"="Modifications are not saved when you move to the previous screen.";
-"doc_discard_desc"="Would you like to go to the previous screen?";
+"doc_reg"="Register";
+"doc_add_success_toast"="Document has been added.";
+"doc_discard_title"="Unsaved changes will be lost if you go back.";
+"doc_discard_desc"="Do you want to go back?";
 
 
 "doc_duplicated_tag"="This tag has already been registered.";
@@ -231,15 +231,15 @@ There is a 14-day waiting period for withdrawal after completion of authenticati
 "doc_tag_empty"="Please enter your tags.";
 
 // document edit
-"doc_edit_title" = "Correction";
+"doc_edit_title" = "Edit Document";
 "doc_edit_done" = "Done";
-"doc_not_saved_title"="Modifications are not saved when you move to the previous screen.";
-"doc_not_saved_desc"="Would you like to go to the previous screen?";
+"doc_not_saved_title"="Unsaved changes will be lost if you go back.";
+"doc_not_saved_desc"="Do you want to go back?";
 "doc_title_empty"="Please enter the title.";
 "doc_content_empty"="Please enter the content.";
 "doc_tag_empty"="Please enter your tags.";
 
-"server_connect_fail"="Network connection is not working properly.";
+"server_connect_fail"="Unable to connect to the server. Please try again.";
 
 "edit"="Edit";
 "contact_us"="Contact us";
@@ -250,7 +250,7 @@ There is a 14-day waiting period for withdrawal after completion of authenticati
 "save"="Save";
 
 "email"="E-mail";
-"email_hint"="Input email address";
+"email_hint"="Enter email address";
 
 "delete"="delete";
 "use"="use";
@@ -259,130 +259,130 @@ There is a 14-day waiting period for withdrawal after completion of authenticati
 "no"="no";
 
 
-"signout_confirm"="Are you sure you want to leave?";
+"signout_confirm"="Are you sure you want to log out?";
 
-"search"="검색";
-"detail"="detail";
+"search"="Search";
+"detail"="Detail";
 
 
-"question"="question";
+"question"="Question";
 
 // inquiries
-"inquiries" = "inquiry history";
-"no_inquiry_history" = "There is no inquiry history";
+"inquiries" = "Inquiry History";
+"no_inquiry_history" = "No inquiries yet.";
 
 // Terms
 "Terms_1" = "Traystorage Terms of Use";
 
 
-"privacy_to_third_party"="Privacy Policy to Third Parties";
+"privacy_to_third_party"="Third-Party Privacy Policy";
 "privacy_statement"="Privacy Statement";
 "privacy_policy"="Privacy Policy";
 "contact"="Contact";
 "refund_policy"="Refund policy information";
 
 "terms_of_use"="Terms of Use";
-"not_see_today"="do not see today";
+"not_see_today"="Don't show today";
 "close"="Close";
 "register"="Register";
 "complete"="Done";
 
 // menu & vc title
-"profile_manage_title"="Profile management";
+"profile_manage_title"="Profile";
 "invite_title"="Invite";
 "contact_us_title"="Contact us";
 "notice_title"="Notice";
-"setting_title"="Setting";
-"copyright"="ⓒ TrayStorage View.\nAll right reserved.";
+"setting_title"="Settings";
+"copyright"="ⓒ TrayStorage View.\nAll rights reserved.";
  
 //notice
-"notice_count"="Document";
+"notice_count"="Documents";
 
 // invite
-"invite_desc"="Send invitation messages\n to friends who need Traystorage";
+"invite_desc"="Invite friends who could use\nTraystorage for document management";
 "invite_friends"="Invite friends";
 
 // contact us
-"contact_us_description"="If you have any questions about Tray Storage, please fill in the form and our operations team will get back to you as soon as possible";
+"contact_us_description"="Have a question about TrayStorage? Fill out the form below and our team will get back to you as soon as possible.";
 "contact_us_subject"="Inquiry title";
-"contact_us_subject_hint"="Please enter your inquiry title";
+"contact_us_subject_hint"="Enter inquiry title";
 "contact_us_content"="Inquiry contents";
-"contact_us_content_hint"="Please enter your inquiry";
+"contact_us_content_hint"="Enter your inquiry";
 
 
 // settings
-"setting_account_info"="Account information";
+"setting_account_info"="Account Information";
 "setting_id"="ID";
 "setting_password"="Password";
 "setting_edit"="Edit";
-"setting_version_info"="Version information";
+"setting_version_info"="Version Information";
 "faq"="FAQ";
 "open_source_license" = "Open source license";
-"marketing_consent"="Terms and Conditions";
+"marketing_consent"="Terms & Conditions";
 "setting_logout"="Logout";
-"setting_withdrawal"="Member withdrawal";
+"setting_withdrawal"="Delete Account";
 
-"setting_password_change_title" = "You can change your password after you authenticate your phone.";
-"setting_password_change_detail" = "Do you want to go to the Smart phone authentication screen?";
+"setting_password_change_title" = "Phone verification is required to change your password.";
+"setting_password_change_detail" = "Would you like to proceed to phone verification?";
 
-"logout_alert_title" = "Would you like to log out?";
-"user_edit_alert_title" = "Do you want to cancel your membership?";
+"logout_alert_title" = "Are you sure you want to log out?";
+"user_edit_alert_title" = "Are you sure you want to delete your account?";
 
 // document detail
-"doc_del_query_title" = "If you delete a document, it will not be exposed to NFC tags.";
-"doc_del_query_desc" = "Are you sure you would like to delete this document?";
+"doc_del_query_title" = "Deleting this document will remove it from NFC tags as well.";
+"doc_del_query_desc" = "Are you sure you want to delete this document?";
 
 
 // version
 "version_title"="Version information";
-"version_header"="Please update to\nthe latest version";
-"version_header1"="You are currently using the latest version";
+"version_header"="A new version is available.\nPlease update now.";
+"version_header1"="You're using the latest version.";
 "cur_version"="Current version";
 "new_version"="Latest version";
 "update_version_button"="Update version";
 
 // profile
 "profile_main_info"="Basic Information";
-"profile_discard_title"="Modifications are not saved when you move to the previous screen. ";
-"profile_discard_desc"="Would you like to go to the previous screen?";
-"profile_changed"="Profile has been changed.";
-"profile_save"="Would you like to save changes?";
+"profile_discard_title"="Unsaved changes will be lost if you go back.";
+"profile_discard_desc"="Do you want to go back?";
+"profile_changed"="Profile updated successfully.";
+"profile_save"="Save changes?";
 
 // photo select
-"gallery_tilte"=" Select photo";
+"gallery_tilte"="Select Photo";
 "gallery_complete_button"="Done";
 
 // license
 "open_source_license_title"="Open source license";
 
 // nfc
-"nfc_header"="Please tag the smartphone on the NFC\nsticker and register the document";
-"nfc_desc"="Register the document easily and conveniently now,\nmanaging and sharing it through NFC tags.";
+"nfc_header"="Hold your phone near the NFC tag\nto register the document";
+"nfc_desc"="Easily register your documents and\nmanage and share them via NFC tags.";
 
 //contact us
-"inquiry_save"="Would you like to inquire about\nwhat you have written?";
-"inquiry_save_confirm"="Your inquiry has been sent.";
-"inquiry_title_input"="Please enter your inquiry title";
-"inquiry_content_input"="Please enter your inquiry";
-"inquiry_content10_input"="Please enter at least 10 characters for your inquiry.";
+"inquiry_save"="Would you like to submit\nyour inquiry?";
+"inquiry_save_confirm"="Your inquiry has been submitted.";
+"inquiry_title_input"="Enter inquiry title";
+"inquiry_content_input"="Enter your inquiry";
+"inquiry_content10_input"="Inquiry must be at least 10 characters.";
 
 //inquiry
 "reply_wait"="Waiting for reply";
 "answer_done"="Answer complete";
 
 // Phone certification
-"phone_verify_title"="Phone authentication";
-"phone_verify_withdraw_desc"="Please enter your account information to sign up for membership";
+"phone_verify_title"="Phone Verification";
+"phone_verify_withdraw_desc"="Verify your phone number to proceed";
 
 // network error
 
-"network_conect_fail_title"="You are not connected to a network.";
-"network_conect_fail_desc"="After checking the network connection status\nPlease restart.";
+"network_conect_fail_title"="No network connection.";
+"network_conect_fail_desc"="Please check your network connection\nand try again.";
 
-"apple_login_fail1" = "The authentication attempt was canceled by the user.";
-"apple_login_fail2" = "An invalid response was received for your approval request.";
-"apple_login_fail3" = "Your approval request has not been processed.";
+"apple_login_fail1" = "Sign-in was canceled.";
+"apple_login_fail2" = "Invalid response received. Please try again.";
+"apple_login_fail3" = "Sign-in request could not be processed.";
 
-"login_token_error" = "The authentication period has expired. Please log in again.";
-"empty_nfc_tag" = "This NFC tag\nis an empty tag.";
-"go_main_page" = "To main screen";
+"login_token_error" = "Your session has expired. Please log in again.";
+"empty_nfc_tag" = "This NFC tag\nis empty.";
+"go_main_page" = "Go to Home";

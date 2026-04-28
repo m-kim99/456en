@@ -17,7 +17,6 @@
                 <outlet property="tfId" destination="Vhp-XE-V27" id="XyL-eG-saJ"/>
                 <outlet property="tfPwd" destination="ZOl-7e-h7k" id="Z3s-b4-kyr"/>
                 <outlet property="view" destination="iN0-l3-epB" id="Ued-mn-doj"/>
-                <outlet property="vwFind" destination="V1R-9K-E5b" id="vN1-m4-Yc9"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>

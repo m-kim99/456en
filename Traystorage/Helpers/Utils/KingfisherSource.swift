@@ -22,7 +22,7 @@ class KingfisherSource: InputSource {
             callback(nil)
             return
         }
-        imageView.kf.setImage(with: imageURL, placeholder: nil, options: nil, progressBlock: nil) { result in
+        imageView.kf.setImage(with: imageURL, placeholder: nil, options: nil) { result in
             
             switch result {
             case .success(let ret):

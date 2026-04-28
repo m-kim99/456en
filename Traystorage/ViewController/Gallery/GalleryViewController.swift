@@ -50,7 +50,7 @@ class GalleryViewController: BaseVC {
     }
     
     func checkPermission() {
-        if gReview {
+        if gAppStoreReview {
             authorize(fromViewController: self) { (authorized) -> Void in
                 guard authorized == true else {
                     self.showDialog()

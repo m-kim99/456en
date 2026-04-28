@@ -143,16 +143,11 @@ extension SettingVC: UITableViewDataSource, UITableViewDelegate {
             }
             
             if let changePwdButton = cell.viewWithTag(2) as? UIButton {
-                if gReview {
-                    changePwdButton.isHidden = true
-                } else {
-                    changePwdButton.isHidden = false
                     let sel = #selector(self.onClickPwd(_:))
                     changePwdButton.removeTarget(self, action:
                                                     sel, for: .touchUpInside)
                     
                     changePwdButton.addTarget(self, action: sel, for: .touchUpInside)
-                }
             }
         case (versionSection, 0):
             if let versionLabel = cell.viewWithTag(1) as? UILabel {
@@ -197,16 +192,7 @@ extension SettingVC: UITableViewDataSource, UITableViewDelegate {
         case (logoutSection, 0):
             onClickLogout(1);
         case (logoutSection, 1):
-            if gReview {
-                ConfirmDialog.show(self, title:"user_edit_alert_title"._localized, message: "", showCancelBtn : true) { [weak self]() -> Void in
-                    
-                    if let weakSelf = self {
-                        IntroVC.logOutProcess(weakSelf)
-                    }
-                }
-            } else {
                 self.pushVC(WithdrawalVC(nibName: "vc_withdrawal", bundle: nil), animated: true)
-            }
         default:
             break
         }

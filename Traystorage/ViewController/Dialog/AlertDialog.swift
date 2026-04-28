@@ -57,6 +57,16 @@ class AlertDialog: UIViewController {
         
         vwBg.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.onClickNo(_:))))
         vwRoot.frame = UIScreen.main.bounds
+        
+        // Android-style: text-only button, no background/border
+        // Confirm: #1E319D, 16sp, bold
+        btnYes.backgroundColor = .clear
+        btnYes.layer.borderWidth = 0
+        btnYes.layer.cornerRadius = 0
+        let confirmColor = UIColor(red: 30.0/255.0, green: 49.0/255.0, blue: 157.0/255.0, alpha: 1.0)
+        btnYes.setTitleColor(confirmColor, for: .normal)
+        btnYes.tintColor = confirmColor
+        btnYes.titleLabel?.font = AppFont.createBoldFont(name: AppFont.fontFamilyName, size: 16)
     }
     
     override func didReceiveMemoryWarning() {

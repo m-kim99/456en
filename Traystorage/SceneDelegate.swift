@@ -78,7 +78,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     func scene(_ scene: UIScene, continue userActivity: NSUserActivity) {
         if let incomingURL = userActivity.webpageURL {
-            let linkHandled = DynamicLinks.dynamicLinks().handleUniversalLink(incomingURL) { dynamicLink, _ in
+            let _ = DynamicLinks.dynamicLinks().handleUniversalLink(incomingURL) { dynamicLink, _ in
 
                 // dynamic link 처리
                 print(dynamicLink?.url?.absoluteString as Any)
@@ -87,7 +87,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                     return
                 }
                 if link!.contains("https://traystorageen.page.link") {
-                    print(link)
+                    print(link as Any)
                     Local.setDimLink(link!)
                     NotificationCenter.default.post(name: NSNotification.Name("dimlink"), object: nil)
                 }

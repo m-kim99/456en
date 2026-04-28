@@ -12,7 +12,6 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="InquiryVC" customModule="Traystorage" customModuleProvider="target">
             <connections>
-                <outlet property="btnConfirm" destination="QrF-z4-F3Q" id="p9z-Pg-hCZ"/>
                 <outlet property="lblCount" destination="XyK-Xl-8IN" id="a1u-tF-9pa"/>
                 <outlet property="tvList" destination="Dpr-Z3-1Q4" id="AV4-6m-yCd"/>
                 <outlet property="view" destination="iN0-l3-epB" id="IYH-6L-NM1"/>

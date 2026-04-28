@@ -56,7 +56,7 @@ class DocumentRegisterVC: BaseVC {
             btnAction.setTitle("save"._localized, for: .normal)
         }
         
-        if gReview {
+        if gAppStoreReview {
             imageGroup.isHidden = true
         } else {
             imageGroup.isHidden = false

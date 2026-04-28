@@ -7,7 +7,6 @@ class LoginVC: BaseVC {
     @IBOutlet weak var tfId: UITextField!
     @IBOutlet weak var tfPwd: UITextField!
     private var btnShowPwd: UIButton?
-    @IBOutlet var vwFind: UIView!
     
     @IBOutlet weak var btnLogin: UIButton!
     
@@ -23,11 +22,45 @@ class LoginVC: BaseVC {
         setupPasswordToggle()
         setupInputMonitoring()
         updateLoginButtonState()
-
-        if gReview {
-            vwFind.isHidden = true
-        } else {
-            vwFind.isHidden = false
+        setupTextFieldBorder()
+        setupLogoWidth()
+    }
+    
+    private func setupTextFieldBorder() {
+        let borderColor = UIColor(red: 214/255.0, green: 215/255.0, blue: 220/255.0, alpha: 1).cgColor
+        [tfId, tfPwd].forEach { tf in
+            guard let tf = tf else { return }
+            tf.borderStyle = .none
+            tf.layer.cornerRadius = 12
+            tf.layer.borderWidth = 1
+            tf.layer.borderColor = borderColor
+            let leftPad = UIView(frame: CGRect(x: 0, y: 0, width: 16, height: 1))
+            tf.leftView = leftPad
+            tf.leftViewMode = .always
+        }
+        let rightPad = UIView(frame: CGRect(x: 0, y: 0, width: 16, height: 1))
+        tfId.rightView = rightPad
+        tfId.rightViewMode = .always
+    }
+    
+    private func setupLogoWidth() {
+        let screenWidth = UIScreen.main.bounds.width
+        let logoWidth = screenWidth * (250.0 / 375.0)
+        let logoHeight = logoWidth * (40.0 / 160.0)
+        if let logoView = view.viewWithTag(100) as? UIImageView {
+            NSLayoutConstraint.deactivate(logoView.constraints.filter {
+                $0.firstAttribute == .width || $0.firstAttribute == .height
+            })
+            NSLayoutConstraint.activate([
+                logoView.widthAnchor.constraint(equalToConstant: logoWidth),
+                logoView.heightAnchor.constraint(equalToConstant: logoHeight)
+            ])
+        }
+        if let container = view.viewWithTag(101) {
+            NSLayoutConstraint.deactivate(container.constraints.filter { $0.firstAttribute == .height })
+            NSLayoutConstraint.activate([
+                container.heightAnchor.constraint(equalToConstant: logoHeight)
+            ])
         }
     }
     
@@ -37,7 +70,9 @@ class LoginVC: BaseVC {
         button.tintColor = AppColor.gray
         button.frame = CGRect(x: 0, y: 0, width: 44, height: 44)
         button.addTarget(self, action: #selector(onClickShowPwd(_:)), for: .touchUpInside)
-        tfPwd.rightView = button
+        let container = UIView(frame: CGRect(x: 0, y: 0, width: 59, height: 44))
+        container.addSubview(button)
+        tfPwd.rightView = container
         tfPwd.rightViewMode = .always
         btnShowPwd = button
     }

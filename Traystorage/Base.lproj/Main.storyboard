@@ -429,7 +429,6 @@
                     </view>
                     <navigationItem key="navigationItem" id="S6J-bu-wk3"/>
                     <connections>
-                        <outlet property="SNSView" destination="o0c-WC-zod" id="bDv-U8-4c4"/>
                         <outlet property="introView" destination="c6X-yX-o9m" id="Vsj-Ut-kGP"/>
                         <outlet property="loadingImage1" destination="VNq-qm-ac3" id="rqc-5A-4Bd"/>
                         <outlet property="loadingImage2" destination="qsp-xe-nWR" id="Csg-SC-jJJ"/>

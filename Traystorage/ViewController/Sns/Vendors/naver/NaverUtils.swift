@@ -10,7 +10,7 @@ import Foundation
 import AEXML
 import NaverThirdPartyLogin
 
-protocol NaverUtilsDelegate: class  {
+protocol NaverUtilsDelegate: AnyObject  {
     func NaverSign(info: NaverUserInfo)
     func NaverSignError()
 }

@@ -4,6 +4,7 @@ import PullToRefresh
 import SKPhotoBrowser
 import SVProgressHUD
 import UIKit
+import WebKit
 
 class DocumentDetailVC: BaseVC {
     @IBOutlet var lblChallengeName: UILabel!
@@ -35,9 +36,13 @@ class DocumentDetailVC: BaseVC {
     private var refreshControl = UIRefreshControl()
     private var document: ModelDocument?
     private var photoBrowser: SKPhotoBrowser!
+    private var coupangBanner: CoupangAdBanner!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        setupCoupangBanner()
+        setupDeleteButton()
         
         if isAppearFromAddDoc {
             view.showToast("doc_add_success_toast"._localized)
@@ -47,6 +52,27 @@ class DocumentDetailVC: BaseVC {
         loadDocumentDetail(documentId)
         
         imageCollectionView.register(UINib(nibName: "item_image", bundle: nil), forCellWithReuseIdentifier: "cell")
+    }
+    
+    private func setupDeleteButton() {
+        let config = UIImage.SymbolConfiguration(pointSize: 22, weight: .regular)
+        btnDelete.setImage(UIImage(systemName: "trash", withConfiguration: config), for: .normal)
+        btnDelete.tintColor = UIColor(red: 30/255.0, green: 49/255.0, blue: 157/255.0, alpha: 1)
+    }
+    
+    private func setupCoupangBanner() {
+        guard let buttonStackView = btnEdit.superview,
+              let mainStackView = buttonStackView.superview as? UIStackView else { return }
+        
+        coupangBanner = CoupangAdBanner(frame: .zero)
+        coupangBanner.translatesAutoresizingMaskIntoConstraints = false
+        mainStackView.addArrangedSubview(coupangBanner)
+        
+        NSLayoutConstraint.activate([
+            coupangBanner.heightAnchor.constraint(equalToConstant: 210)
+        ])
+        
+        mainStackView.setCustomSpacing(16, after: buttonStackView)
     }
     
     private func loadContentsFormDoc() {

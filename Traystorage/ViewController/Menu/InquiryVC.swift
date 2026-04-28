@@ -12,7 +12,6 @@ class InquiryVC: BaseVC {
     @IBOutlet weak var vwEmpty: UIView!
     @IBOutlet weak var tvList: UITableView!
     @IBOutlet weak var lblCount: UILabel!
-    @IBOutlet var btnConfirm: UIFontButton!
     
     var askList:[ModelCard] = []
     var askListExpend:[Bool] = []
@@ -35,9 +34,6 @@ class InquiryVC: BaseVC {
     func initVC() {
         tvList.register(UINib(nibName: "tvc_inquiry", bundle: nil), forCellReuseIdentifier: "InquiryTVC")
         vwEmpty.isHidden = true
-        
-        btnConfirm.setTitle("to Contact", for: .normal)
-        btnConfirm.setTitle("to Contact", for: .highlighted)
     }
 
     @IBAction func onContactus(_ sender: Any) {

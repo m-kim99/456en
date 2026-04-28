@@ -13,7 +13,6 @@ class SignupCompleteVC: BaseVC {
     
     @IBOutlet weak var maleButton: UIButton!
     @IBOutlet weak var femaleButton: UIButton!
-    private var privateButton: UIButton!
     
     var userGender = 0
     
@@ -23,7 +22,6 @@ class SignupCompleteVC: BaseVC {
     @IBOutlet weak var btnStart: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupPrivateGenderButton()
         updateGender()
         
         initVC()
@@ -51,33 +49,14 @@ class SignupCompleteVC: BaseVC {
     }
     
     
-    private func setupPrivateGenderButton() {
-        privateButton = UIButton(type: .system)
-        privateButton.setTitle("Private", for: .normal)
-        privateButton.titleLabel?.font = UIFont(name: "AppleSDGothicNeo-Regular", size: 15)
-        privateButton.layer.cornerRadius = 20
-        privateButton.layer.borderWidth = 1
-        privateButton.contentEdgeInsets = UIEdgeInsets(top: 0, left: 8, bottom: 0, right: 8)
-        privateButton.translatesAutoresizingMaskIntoConstraints = false
-        privateButton.addTarget(self, action: #selector(onClickGender(_:)), for: .touchUpInside)
-        
-        if let genderStack = maleButton.superview as? UIStackView {
-            genderStack.addArrangedSubview(privateButton)
-            privateButton.widthAnchor.constraint(equalToConstant: 80).isActive = true
-        }
-    }
-    
     private func updateGender() {
         let maleColor = userGender == 0 ? AppColor.active : AppColor.gray
         let femaleColor = userGender == 1 ? AppColor.active : AppColor.gray
-        let privateColor = userGender == 2 ? AppColor.active : AppColor.gray
         
         maleButton.borderColor = maleColor
         maleButton.tintColor = maleColor
         femaleButton.borderColor = femaleColor
         femaleButton.tintColor = femaleColor
-        privateButton.layer.borderColor = privateColor.cgColor
-        privateButton.tintColor = privateColor
     }
     
     private func openMainVC() {
@@ -122,8 +101,6 @@ extension SignupCompleteVC: BaseAction {
                 userGender = 0
             } else if button == femaleButton {
                 userGender = 1
-            } else {
-                userGender = 2
             }
             updateGender()
         }

@@ -31,7 +31,7 @@ class MainVC: BaseVC {
     private var sortButton: UIButton!
         
     private var vcMenu: MenuVC?
-    private var coupangBanner: CoupangAdBanner!
+
 
     private enum Tab: Int {
         case home = 0
@@ -57,7 +57,24 @@ class MainVC: BaseVC {
         lblSearchEmpty.isHidden = true
         
         setupSortButton()
-        setupCoupangBanner()
+        setupMainHeader()
+    }
+    
+    private func setupMainHeader() {
+        let screenWidth = UIScreen.main.bounds.width
+        let logoWidth = screenWidth * (200.0 / 375.0)
+        let logoHeight = logoWidth * (40.0 / 160.0)
+        if let logoView = view.viewWithTag(200) as? UIImageView {
+            logoView.constraints.forEach { c in
+                if c.firstAttribute == .width { c.constant = logoWidth }
+                if c.firstAttribute == .height { c.constant = logoHeight }
+            }
+        }
+        let hintColor = UIColor(red: 107/255.0, green: 108/255.0, blue: 110/255.0, alpha: 1)
+        tfSearchText.attributedPlaceholder = NSAttributedString(
+            string: "doc_search_hint"._localized,
+            attributes: [.foregroundColor: hintColor]
+        )
         
         let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(swiped))
         swipeLeft.direction = .left
@@ -176,7 +193,7 @@ class MainVC: BaseVC {
         } else {
             vwEmptyView.isHidden = true
             vwDocumentView.isHidden = false
-            lblSearchEmpty.text = "search_empty_title"._localized + "'" + (lastKeyword ?? "") + "'"
+            lblSearchEmpty.text = "'" + (lastKeyword ?? "") + "'" + "search_empty_title"._localized
             lblSearchEmpty.isHidden = !isEmptyDocList
         }
     }
@@ -208,23 +225,6 @@ class MainVC: BaseVC {
         vcMenu?.slideOpen(view)
     }
     
-    // MARK: - Coupang Banner
-    
-    private func setupCoupangBanner() {
-        coupangBanner = CoupangAdBanner(frame: .zero)
-        coupangBanner.translatesAutoresizingMaskIntoConstraints = false
-        
-        if let rootView = vwDocumentView.superview {
-            rootView.addSubview(coupangBanner)
-            NSLayoutConstraint.activate([
-                coupangBanner.leadingAnchor.constraint(equalTo: rootView.leadingAnchor),
-                coupangBanner.trailingAnchor.constraint(equalTo: rootView.trailingAnchor),
-                coupangBanner.bottomAnchor.constraint(equalTo: rootView.bottomAnchor),
-                coupangBanner.heightAnchor.constraint(equalToConstant: 100)
-            ])
-        }
-    }
-    
     // MARK: - Sort
     
     private func setupSortButton() {
@@ -233,7 +233,6 @@ class MainVC: BaseVC {
         sortButton.titleLabel?.font = UIFont.systemFont(ofSize: 14)
         sortButton.setTitleColor(UIColor(red: 30.0/255.0, green: 49.0/255.0, blue: 157.0/255.0, alpha: 1), for: .normal)
         sortButton.contentHorizontalAlignment = .trailing
-        sortButton.addTarget(self, action: #selector(onClickSort), for: .touchUpInside)
         sortButton.translatesAutoresizingMaskIntoConstraints = false
         
         if let stackView = lblDocumentCount.superview as? UIStackView {
@@ -241,6 +240,28 @@ class MainVC: BaseVC {
             sortButton.setContentHuggingPriority(.required, for: .horizontal)
             sortButton.setContentCompressionResistancePriority(.required, for: .horizontal)
         }
+        
+        if #available(iOS 14.0, *) {
+            sortButton.showsMenuAsPrimaryAction = true
+            updateSortMenu()
+        } else {
+            sortButton.addTarget(self, action: #selector(onClickSort), for: .touchUpInside)
+        }
+        
+    }
+    
+    @available(iOS 14.0, *)
+    private func updateSortMenu() {
+        let actions = sortOptions.enumerated().map { (index, option) in
+            UIAction(title: option, state: index == self.currentSortType ? .on : .off) { [weak self] _ in
+                guard let self = self else { return }
+                self.currentSortType = index
+                self.sortButton.setTitle(option + " ▾", for: .normal)
+                self.sortDocuments()
+                self.updateSortMenu()
+            }
+        }
+        sortButton.menu = UIMenu(title: "", children: actions)
     }
     
     @objc private func onClickSort() {

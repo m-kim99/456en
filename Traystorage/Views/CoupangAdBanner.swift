@@ -3,9 +3,8 @@ import WebKit
 
 class CoupangAdBanner: UIView {
     
-    // TODO: 실제 쿠팡 파트너스 ID로 교체
-    static let partnerId = 0
-    static let trackingCode = "AF0000000"
+    static let widgetId = 971272
+    static let trackingCode = "AF1883524"
     static let subId = ""
     
     private var webView: WKWebView!
@@ -44,35 +43,10 @@ class CoupangAdBanner: UIView {
     }
     
     private func loadAd() {
-        guard CoupangAdBanner.partnerId != 0 else {
-            isHidden = true
-            return
-        }
-        
-        let html = """
-        <!DOCTYPE html>
-        <html>
-        <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-        <style>
-        body { margin: 0; padding: 0; background: #fff; display: flex; justify-content: center; align-items: center; }
-        </style>
-        </head>
-        <body>
-        <script src="https://ads-partners.coupang.com/g.js"></script>
-        <script>
-        new PartnersCoupang.G({
-            "id": \(CoupangAdBanner.partnerId),
-            "template": "carousel",
-            "trackingCode": "\(CoupangAdBanner.trackingCode)",
-            "subId": "\(CoupangAdBanner.subId)",
-            "width": "100%",
-            "height": "90"
-        });
-        </script>
-        </body>
-        </html>
-        """
+        let html = "<html><head><style>body{margin:0;padding:0;}</style></head><body>"
+            + "<iframe src='https://ads-partners.coupang.com/widgets.html?id=\(CoupangAdBanner.widgetId)&template=carousel&trackingCode=\(CoupangAdBanner.trackingCode)&subId=\(CoupangAdBanner.subId)&width=680&height=210&tsource=' "
+            + "width='100%' height='210' frameborder='0' scrolling='no' referrerpolicy='unsafe-url'></iframe>"
+            + "</body></html>"
         
         webView.loadHTMLString(html, baseURL: URL(string: "https://ads-partners.coupang.com"))
     }

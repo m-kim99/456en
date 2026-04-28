@@ -1,12 +1,12 @@
 import AuthenticationServices
 import AVFoundation
-import Firebase
-import FirebaseAuth
 import GoogleSignIn
 import Photos
 import SVProgressHUD
 import Toast_Swift
 import UIKit
+import Firebase
+import FirebaseAuth
 
 class IntroVC: BaseVC {
     @IBOutlet var pageScrollView: UIScrollView!
@@ -18,7 +18,6 @@ class IntroVC: BaseVC {
     @IBOutlet var loadingImage1: UIImageView!
     @IBOutlet var loadingImage2: UIImageView!
     @IBOutlet var loadingImage3: UIImageView!
-    @IBOutlet var SNSView: UIStackView!
     
     let pageCount = 2
     private var currentPage = 0
@@ -29,6 +28,7 @@ class IntroVC: BaseVC {
     var loadingProgressTimer: Timer?
     
     private var snsManager: SnsManager!
+    private var loginHomeBuilt = false
     
     // MARK: - Splash & New Intro Properties
     private var splashView: UIView?
@@ -114,15 +114,21 @@ class IntroVC: BaseVC {
     private func splashPhase2() {
         guard let logoIV = splashLogoImageView else { return }
         
+        let logoWidth = view.frame.width * (280.0 / 375.0)
+        let logoHeight = logoWidth * (70.0 / 280.0)
+        
         UIView.transition(with: logoIV, duration: 0.3, options: .transitionCrossDissolve) {
             logoIV.image = UIImage(named: "img_intro_logo_text")
-            logoIV.transform = CGAffineTransform(scaleX: 0.8, y: 0.8)
+            logoIV.transform = .identity
         }
         
-        logoIV.constraints.forEach { c in
-            if c.firstAttribute == .width { c.constant = 280 }
-            if c.firstAttribute == .height { c.constant = 70 }
-        }
+        NSLayoutConstraint.deactivate(logoIV.constraints.filter {
+            $0.firstAttribute == .width || $0.firstAttribute == .height
+        })
+        NSLayoutConstraint.activate([
+            logoIV.widthAnchor.constraint(equalToConstant: logoWidth),
+            logoIV.heightAnchor.constraint(equalToConstant: logoHeight)
+        ])
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) { [weak self] in
             self?.onSplashComplete()
@@ -387,12 +393,160 @@ extension IntroVC: BaseNavigation {
     }
 
     func openLogSingupView() {
-//        self.replaceVC(GuideVC(nibName: "vc_guide", bundle: nil), animated: true)
         changeLoadingViewVisiblity(isHidden: true)
         hideSplash()
         hideNewIntro()
         introView.isHidden = true
         startView.isHidden = false
+        setupLoginHomeView()
+    }
+    
+    private func setupLoginHomeView() {
+        guard !loginHomeBuilt else { return }
+        loginHomeBuilt = true
+        
+        // Hide existing storyboard subviews
+        for sub in startView.subviews {
+            sub.isHidden = true
+        }
+        startView.backgroundColor = .clear
+        
+        let primaryColor = UIColor(red: 30/255.0, green: 49/255.0, blue: 157/255.0, alpha: 1)
+        let textColor = UIColor(red: 17/255.0, green: 17/255.0, blue: 17/255.0, alpha: 1)
+        
+        // Background image (login.png) - matches Android scaleType="fitXY"
+        let bgImageView = UIImageView(image: UIImage(named: "login"))
+        bgImageView.contentMode = .scaleToFill
+        bgImageView.clipsToBounds = true
+        bgImageView.translatesAutoresizingMaskIntoConstraints = false
+        startView.addSubview(bgImageView)
+        NSLayoutConstraint.activate([
+            bgImageView.topAnchor.constraint(equalTo: startView.topAnchor),
+            bgImageView.leadingAnchor.constraint(equalTo: startView.leadingAnchor),
+            bgImageView.trailingAnchor.constraint(equalTo: startView.trailingAnchor),
+            bgImageView.bottomAnchor.constraint(equalTo: startView.bottomAnchor)
+        ])
+        
+        // Top section: Logo + Text (marginTop 84, paddingHorizontal 24)
+        let headerStack = UIStackView()
+        headerStack.axis = .vertical
+        headerStack.alignment = .center
+        headerStack.spacing = 32
+        headerStack.translatesAutoresizingMaskIntoConstraints = false
+        startView.addSubview(headerStack)
+        
+        // Logo: view 240x48
+        let logoImageView = UIImageView(image: UIImage(named: "view"))
+        logoImageView.contentMode = .scaleAspectFit
+        logoImageView.translatesAutoresizingMaskIntoConstraints = false
+        headerStack.addArrangedSubview(logoImageView)
+        let logoWidth = view.frame.width * (250.0 / 375.0)
+        NSLayoutConstraint.activate([
+            logoImageView.widthAnchor.constraint(equalToConstant: logoWidth),
+            logoImageView.heightAnchor.constraint(equalToConstant: logoWidth * (40.0 / 160.0))
+        ])
+        
+        // Title text: bold 24sp, #111111, center
+        let titleLabel = UILabel()
+        titleLabel.text = "start_header"._localized
+        titleLabel.textColor = textColor
+        titleLabel.font = AppFont.appleGothicNeoBold(24)
+        titleLabel.numberOfLines = 0
+        titleLabel.textAlignment = .center
+        headerStack.addArrangedSubview(titleLabel)
+        
+        NSLayoutConstraint.activate([
+            headerStack.topAnchor.constraint(equalTo: startView.topAnchor, constant: 84),
+            headerStack.centerXAnchor.constraint(equalTo: startView.centerXAnchor),
+            headerStack.leadingAnchor.constraint(greaterThanOrEqualTo: startView.leadingAnchor, constant: 24),
+            headerStack.trailingAnchor.constraint(lessThanOrEqualTo: startView.trailingAnchor, constant: -24)
+        ])
+        
+        // Bottom section (marginBottom 24, paddingHorizontal 32)
+        let bottomStack = UIStackView()
+        bottomStack.axis = .vertical
+        bottomStack.alignment = .fill
+        bottomStack.translatesAutoresizingMaskIntoConstraints = false
+        startView.addSubview(bottomStack)
+        NSLayoutConstraint.activate([
+            bottomStack.leadingAnchor.constraint(equalTo: startView.leadingAnchor, constant: 32),
+            bottomStack.trailingAnchor.constraint(equalTo: startView.trailingAnchor, constant: -32),
+            bottomStack.bottomAnchor.constraint(equalTo: startView.bottomAnchor, constant: -24)
+        ])
+        
+        // Login button: 48h, 12r, #1E319D bg, #FDFDFE text, bold 18sp
+        let loginBtn = UIButton(type: .system)
+        loginBtn.setTitle("login"._localized, for: .normal)
+        loginBtn.setTitleColor(UIColor(red: 253/255.0, green: 253/255.0, blue: 254/255.0, alpha: 1), for: .normal)
+        loginBtn.titleLabel?.font = AppFont.appleGothicNeoBold(18)
+        loginBtn.backgroundColor = primaryColor
+        loginBtn.layer.cornerRadius = 12
+        loginBtn.clipsToBounds = true
+        loginBtn.heightAnchor.constraint(equalToConstant: 48).isActive = true
+        loginBtn.addTarget(self, action: #selector(onLogin(_:)), for: .touchUpInside)
+        bottomStack.addArrangedSubview(loginBtn)
+        
+        // Signup button: 48h, 12r, white bg, #1E319D border 1px, #1E319D text, bold 18sp, marginTop 8
+        let signupBtn = UIButton(type: .system)
+        signupBtn.setTitle("signup"._localized, for: .normal)
+        signupBtn.setTitleColor(primaryColor, for: .normal)
+        signupBtn.titleLabel?.font = AppFont.appleGothicNeoBold(18)
+        signupBtn.backgroundColor = .white
+        signupBtn.layer.cornerRadius = 12
+        signupBtn.layer.borderWidth = 1
+        signupBtn.layer.borderColor = primaryColor.cgColor
+        signupBtn.clipsToBounds = true
+        signupBtn.heightAnchor.constraint(equalToConstant: 48).isActive = true
+        signupBtn.addTarget(self, action: #selector(onSignup(_:)), for: .touchUpInside)
+        bottomStack.addArrangedSubview(signupBtn)
+        bottomStack.setCustomSpacing(8, after: loginBtn)
+        
+        // "or" label: 14sp, #111111, center, marginVertical 12
+        let orLabel = UILabel()
+        orLabel.text = "or"
+        orLabel.textColor = textColor
+        orLabel.font = AppFont.appleGothicNeoRegular(14)
+        orLabel.textAlignment = .center
+        bottomStack.addArrangedSubview(orLabel)
+        bottomStack.setCustomSpacing(12, after: signupBtn)
+        bottomStack.setCustomSpacing(12, after: orLabel)
+        
+        // SNS icons: 48x48, spacing 28, centered, paddingVertical 12
+        let snsContainer = UIView()
+        snsContainer.translatesAutoresizingMaskIntoConstraints = false
+        let snsStack = UIStackView()
+        snsStack.axis = .horizontal
+        snsStack.alignment = .center
+        snsStack.spacing = 28
+        snsStack.translatesAutoresizingMaskIntoConstraints = false
+        snsContainer.addSubview(snsStack)
+        NSLayoutConstraint.activate([
+            snsStack.centerXAnchor.constraint(equalTo: snsContainer.centerXAnchor),
+            snsStack.topAnchor.constraint(equalTo: snsContainer.topAnchor, constant: 12),
+            snsStack.bottomAnchor.constraint(equalTo: snsContainer.bottomAnchor, constant: -12)
+        ])
+        
+        // Kakao(0), Google(1), Naver(3), Apple(4) - Apple retained for iOS
+        let snsIcons: [(String, Int)] = [
+            ("Icon-SNS-kakao-60", 0),
+            ("Icon-SNS-Google-60", 1),
+            ("Icon-SNS-Naver-60", 3),
+            ("icon_sns_apple_60", 4)
+        ]
+        for (imageName, tag) in snsIcons {
+            let btn = UIButton(type: .custom)
+            btn.setImage(UIImage(named: imageName), for: .normal)
+            btn.tag = tag
+            btn.translatesAutoresizingMaskIntoConstraints = false
+            btn.addTarget(self, action: #selector(onSignupSNS(_:)), for: .touchUpInside)
+            btn.imageView?.contentMode = .scaleAspectFit
+            NSLayoutConstraint.activate([
+                btn.widthAnchor.constraint(equalToConstant: 48),
+                btn.heightAnchor.constraint(equalToConstant: 48)
+            ])
+            snsStack.addArrangedSubview(btn)
+        }
+        bottomStack.addArrangedSubview(snsContainer)
     }
     
     @IBAction func onSignup(_ sender: Any) {
@@ -574,11 +728,6 @@ extension IntroVC: BaseRestApi {
             
             let version = result as! ModelVersion
             gReview = version.is_review
-            if gReview {
-                self?.SNSView.isHidden = true
-            } else {
-                self?.SNSView.isHidden = false
-            }
             
             self?.onGetVersionSuccess(version)
         }, failure: { [weak self] _, _ in
@@ -829,7 +978,7 @@ extension IntroVC {
         let page = UIView()
         page.backgroundColor = .white
         
-        let safeTop = UIApplication.shared.windows.first?.safeAreaInsets.top ?? 44
+        let safeTop = UIApplication.shared.connectedScenes.compactMap { $0 as? UIWindowScene }.first?.windows.first?.safeAreaInsets.top ?? 44
         
         let topBar = makeTopBar(showBack: false)
         page.addSubview(topBar)
@@ -839,7 +988,7 @@ extension IntroVC {
         page.addSubview(indicator)
         
         let titleLabel = UILabel()
-        titleLabel.text = "Important documents are hard\nto find when you need them, right?"
+        titleLabel.text = "Can't find important documents\nwhen you need them?"
         titleLabel.font = UIFont.boldSystemFont(ofSize: 24)
         titleLabel.textColor = IntroVC.introTitleColor
         titleLabel.textAlignment = .center
@@ -877,7 +1026,7 @@ extension IntroVC {
         let page = UIView()
         page.backgroundColor = .white
         
-        let safeTop = UIApplication.shared.windows.first?.safeAreaInsets.top ?? 44
+        let safeTop = UIApplication.shared.connectedScenes.compactMap { $0 as? UIWindowScene }.first?.windows.first?.safeAreaInsets.top ?? 44
         
         let topBar = makeTopBar(showBack: true)
         page.addSubview(topBar)
@@ -934,6 +1083,14 @@ extension IntroVC {
         imageView.translatesAutoresizingMaskIntoConstraints = false
         page.addSubview(imageView)
         
+        // Image aspect ratio constraint: width = 242/375 of page, height follows natural ratio
+        let imgWidthConstraint = imageView.widthAnchor.constraint(equalTo: page.widthAnchor, multiplier: 242.0/375.0)
+        if let img = UIImage(named: imageName), img.size.width > 0 {
+            let aspectRatio = img.size.height / img.size.width
+            let imgHeightConstraint = imageView.heightAnchor.constraint(equalTo: imageView.widthAnchor, multiplier: aspectRatio)
+            imgHeightConstraint.isActive = true
+        }
+        
         NSLayoutConstraint.activate([
             topBar.topAnchor.constraint(equalTo: page.topAnchor, constant: safeTop),
             topBar.leadingAnchor.constraint(equalTo: page.leadingAnchor),
@@ -948,8 +1105,7 @@ extension IntroVC {
             
             imageView.topAnchor.constraint(equalTo: descBottom, constant: descBottomOffset),
             imageView.centerXAnchor.constraint(equalTo: page.centerXAnchor),
-            imageView.widthAnchor.constraint(equalToConstant: 220),
-            imageView.heightAnchor.constraint(equalToConstant: 467)
+            imgWidthConstraint
         ])
         return page
     }
@@ -958,7 +1114,7 @@ extension IntroVC {
         return buildOnboardingPage(
             activeIndex: 1,
             title: "Document Registration",
-            desc: "Register documents directly with the TrayStorage app\nto record and manage them safely.",
+            desc: "Add documents directly in the TrayStorage app\nto safely store and manage them.",
             imageName: "img_intro_onboarding2"
         )
     }
@@ -967,7 +1123,7 @@ extension IntroVC {
         return buildOnboardingPage(
             activeIndex: 2,
             title: "NFC Tag",
-            desc: "Register documents on the NFC tag attached to TrayStorage,\nand your colleagues can also check the registered\ndocuments through the NFC tag.",
+            desc: "Register documents to the NFC tag on your TrayStorage,\nso anyone can check them with a simple tap.",
             imageName: "img_intro_onboarding3"
         )
     }
@@ -975,7 +1131,7 @@ extension IntroVC {
     private func buildIntroPage4() -> UIView {
         let page = buildOnboardingPage(
             activeIndex: 3,
-            title: "Take the first step towards\nsmart document management\nwith TrayStorage.",
+            title: "Start managing your documents\nsmarter with TrayStorage.",
             desc: nil,
             imageName: "img_intro_onboarding4"
         )
@@ -983,7 +1139,7 @@ extension IntroVC {
         let footer = makeBottomButton(title: "Get Started", action: #selector(introStartTapped))
         page.addSubview(footer)
         
-        let safeBottom = UIApplication.shared.windows.first?.safeAreaInsets.bottom ?? 0
+        let safeBottom = UIApplication.shared.connectedScenes.compactMap { $0 as? UIWindowScene }.first?.windows.first?.safeAreaInsets.bottom ?? 0
         
         NSLayoutConstraint.activate([
             footer.leadingAnchor.constraint(equalTo: page.leadingAnchor),
@@ -997,8 +1153,8 @@ extension IntroVC {
         let page = UIView()
         page.backgroundColor = .white
         
-        let safeTop = UIApplication.shared.windows.first?.safeAreaInsets.top ?? 44
-        let safeBottom = UIApplication.shared.windows.first?.safeAreaInsets.bottom ?? 0
+        let safeTop = UIApplication.shared.connectedScenes.compactMap { $0 as? UIWindowScene }.first?.windows.first?.safeAreaInsets.top ?? 44
+        let safeBottom = UIApplication.shared.connectedScenes.compactMap { $0 as? UIWindowScene }.first?.windows.first?.safeAreaInsets.bottom ?? 0
         
         // Header
         let header = UIView()
@@ -1013,7 +1169,7 @@ extension IntroVC {
         header.addSubview(headerTitle)
         
         let headerDesc = UILabel()
-        headerDesc.text = "TrayStorage uses the following permissions.\nPlease allow permissions for smooth use of the service."
+        headerDesc.text = "TrayStorage requires the following permissions\nfor the best experience."
         headerDesc.font = UIFont.systemFont(ofSize: 14)
         headerDesc.textColor = IntroVC.introDescColor
         headerDesc.numberOfLines = 0
@@ -1067,12 +1223,12 @@ extension IntroVC {
         
         // Permission box: Camera
         contentStack.addArrangedSubview(
-            makePermissionBox(sfSymbol: "camera.fill", title: "Camera", desc: "Provides document photo capture service")
+            makePermissionBox(sfSymbol: "camera.fill", title: "Camera", desc: "Used to capture document photos")
         )
         
         // Permission box: Photo Library
         contentStack.addArrangedSubview(
-            makePermissionBox(sfSymbol: "photo.fill.on.rectangle.fill", title: "Photos", desc: "Captured photos are saved and provides\ndocument photo attachment service")
+            makePermissionBox(sfSymbol: "photo.fill.on.rectangle.fill", title: "Photos", desc: "Used to save and attach\ndocument photos")
         )
         
         // Bottom separator
@@ -1094,7 +1250,7 @@ extension IntroVC {
         
         // Note
         let noteLabel = UILabel()
-        noteLabel.text = "• If there is a permission error, you can re-grant permissions by deleting and reinstalling the app."
+        noteLabel.text = "• If you experience permission issues, you can reset them by reinstalling the app."
         noteLabel.font = UIFont.systemFont(ofSize: 14)
         noteLabel.textColor = IntroVC.introDescColor
         noteLabel.numberOfLines = 0
@@ -1102,7 +1258,7 @@ extension IntroVC {
         contentStack.addArrangedSubview(noteLabel)
         
         // Footer button
-        let footer = makeBottomButton(title: "Confirm", action: #selector(introConfirmTapped))
+        let footer = makeBottomButton(title: "Continue", action: #selector(introConfirmTapped))
         page.addSubview(footer)
         
         NSLayoutConstraint.activate([

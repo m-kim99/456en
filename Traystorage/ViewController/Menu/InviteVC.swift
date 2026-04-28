@@ -18,7 +18,7 @@ class InviteVC: BaseVC {
 
     @IBAction func onClickInvite(_ sender: Any) {
         let appInstallUrl = "http://itunes.apple.com/app/id6474948759?mt=8"
-        let content = "Do you need document management?\nSolved perfectly with Traystorage!\nInstall the Traystorage app now\nand easily manage your documents."
+        let content = "Need a better way to manage your documents?\nTry Traystorage!\nDownload the app now and start organizing your documents with ease."
 
         // text to share
         let text = content + "\n\n" + appInstallUrl
