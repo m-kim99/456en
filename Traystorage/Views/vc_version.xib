@@ -81,8 +81,12 @@
                                         <userDefinedRuntimeAttribute type="string" keyPath="xibLocKey" value="version_header"/>
                                     </userDefinedRuntimeAttributes>
                                 </label>
-                                <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="appicon_login_100" translatesAutoresizingMaskIntoConstraints="NO" id="lyb-WW-odP">
+                                <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="view_en_icon_1024x1024" translatesAutoresizingMaskIntoConstraints="NO" id="lyb-WW-odP">
                                     <rect key="frame" x="0.0" y="56.333333333333343" width="335" height="100"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="100" id="vLg-Kx-b1R"/>
+                                        <constraint firstAttribute="width" constant="100" id="wMn-Px-c2S"/>
+                                    </constraints>
                                 </imageView>
                             </subviews>
                         </stackView>
@@ -220,7 +224,7 @@
         </designable>
     </designables>
     <resources>
-        <image name="appicon_login_100" width="100" height="100"/>
+        <image name="view_en_icon_1024x1024" width="1024" height="1024"/>
         <image name="ic_back" width="24" height="24"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

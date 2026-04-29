@@ -89,7 +89,7 @@ class IntroVC: BaseVC {
         splash.backgroundColor = .white
         splash.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         
-        let logoIV = UIImageView(image: UIImage(named: "ic_intro_logo"))
+        let logoIV = UIImageView(image: UIImage(named: "view_en_icon_1024x1024"))
         logoIV.contentMode = .scaleAspectFit
         logoIV.translatesAutoresizingMaskIntoConstraints = false
         logoIV.transform = CGAffineTransform(scaleX: 0.6, y: 0.6)
