@@ -7,10 +7,10 @@
 
 import Firebase
 import FirebaseDynamicLinks
-import NaverThirdPartyLogin
+//import NaverThirdPartyLogin
 import UIKit
 import GoogleSignIn
-import KakaoSDKAuth
+//import KakaoSDKAuth
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     var window: UIWindow?
@@ -63,16 +63,16 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 //                return
 //            }
 //
-            if urlStr.contains("traystorage://") { // naver
-                NaverThirdPartyLoginConnection
-                    .getSharedInstance()?
-                    .receiveAccessToken(URLContexts.first?.url)
-                return
-            }
+//            if urlStr.contains("traystorage://") { // naver
+//                NaverThirdPartyLoginConnection
+//                    .getSharedInstance()?
+//                    .receiveAccessToken(URLContexts.first?.url)
+//                return
+//            }
 
-            if AuthApi.isKakaoTalkLoginUrl(url) {
-                _ = AuthController.handleOpenUrl(url: url)
-            }
+//            if AuthApi.isKakaoTalkLoginUrl(url) {
+//                _ = AuthController.handleOpenUrl(url: url)
+//            }
         }
     }
 

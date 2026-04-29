@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>Open Source Licenses</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, 'Helvetica Neue', sans-serif;
+    font-size: 14px;
+    color: #1c1c1e;
+    background: #f2f2f7;
+    padding: 16px;
+  }
+  h1 {
+    font-size: 20px;
+    font-weight: 700;
+    color: #1c1c1e;
+    margin-bottom: 16px;
+  }
+  .card {
+    background: #ffffff;
+    border-radius: 12px;
+    margin-bottom: 8px;
+    overflow: hidden;
+  }
+  .card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 16px;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .card-header:active { background: #f2f2f7; }
+  .lib-name {
+    font-size: 15px;
+    font-weight: 600;
+    color: #1c1c1e;
+  }
+  .lib-meta {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .lib-version {
+    font-size: 12px;
+    color: #8e8e93;
+  }
+  .lib-badge {
+    font-size: 11px;
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: 10px;
+  }
+  .badge-mit  { background: #e8f4fd; color: #007aff; }
+  .badge-apache { background: #fef3e8; color: #ff9500; }
+  .chevron {
+    font-size: 12px;
+    color: #c7c7cc;
+    transition: transform 0.2s;
+    margin-left: 8px;
+  }
+  .card-body {
+    display: none;
+    padding: 0 16px 14px;
+    border-top: 1px solid #f2f2f7;
+  }
+  .card-body.open { display: block; }
+  .chevron.open { transform: rotate(90deg); }
+  .license-text {
+    font-size: 11px;
+    line-height: 1.6;
+    color: #636366;
+    white-space: pre-wrap;
+    word-break: break-word;
+  }
+  .lib-url {
+    display: block;
+    font-size: 12px;
+    color: #007aff;
+    margin-bottom: 8px;
+    word-break: break-all;
+  }
+  .section-title {
+    font-size: 13px;
+    font-weight: 600;
+    color: #8e8e93;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin: 20px 0 8px 4px;
+  }
+</style>
+</head>
+<body>
+
+<h1>Open Source Licenses</h1>
+
+<div class="section-title">Networking</div>
+
+<div class="card">
+  <div class="card-header" onclick="toggle(this)">
+    <span class="lib-name">Alamofire</span>
+    <div class="lib-meta">
+      <span class="lib-version">5.9.1</span>
+      <span class="lib-badge badge-mit">MIT</span>
+      <span class="chevron">›</span>
+    </div>
+  </div>
+  <div class="card-body">
+    <a class="lib-url" href="https://github.com/Alamofire/Alamofire">https://github.com/Alamofire/Alamofire</a>
+    <pre class="license-text">Copyright (c) 2014-2024 Alamofire Software Foundation
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</pre>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header" onclick="toggle(this)">
+    <span class="lib-name">SwiftyJSON</span>
+    <div class="lib-meta">
+      <span class="lib-version">5.0.2</span>
+      <span class="lib-badge badge-mit">MIT</span>
+      <span class="chevron">›</span>
+    </div>
+  </div>
+  <div class="card-body">
+    <a class="lib-url" href="https://github.com/SwiftyJSON/SwiftyJSON">https://github.com/SwiftyJSON/SwiftyJSON</a>
+    <pre class="license-text">Copyright (c) 2017 Ruoyu Fu
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</pre>
+  </div>
+</div>
+
+<div class="section-title">Image</div>
+
+<div class="card">
+  <div class="card-header" onclick="toggle(this)">
+    <span class="lib-name">Kingfisher</span>
+    <div class="lib-meta">
+      <span class="lib-version">7.12.0</span>
+      <span class="lib-badge badge-mit">MIT</span>
+      <span class="chevron">›</span>
+    </div>
+  </div>
+  <div class="card-body">
+    <a class="lib-url" href="https://github.com/onevcat/Kingfisher">https://github.com/onevcat/Kingfisher</a>
+    <pre class="license-text">Copyright (c) 2019 Wei Wang
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</pre>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header" onclick="toggle(this)">
+    <span class="lib-name">SKPhotoBrowser</span>
+    <div class="lib-meta">
+      <span class="lib-version">7.1.0</span>
+      <span class="lib-badge badge-mit">MIT</span>
+      <span class="chevron">›</span>
+    </div>
+  </div>
+  <div class="card-body">
+    <a class="lib-url" href="https://github.com/suzuki-0000/SKPhotoBrowser">https://github.com/suzuki-0000/SKPhotoBrowser</a>
+    <pre class="license-text">Copyright (c) 2015 suzuki-0000
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</pre>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header" onclick="toggle(this)">
+    <span class="lib-name">ImageSlideshow</span>
+    <div class="lib-meta">
+      <span class="lib-version">1.9.2</span>
+      <span class="lib-badge badge-mit">MIT</span>
+      <span class="chevron">›</span>
+    </div>
+  </div>
+  <div class="card-body">
+    <a class="lib-url" href="https://github.com/zvonicek/ImageSlideshow">https://github.com/zvonicek/ImageSlideshow</a>
+    <pre class="license-text">Copyright (c) 2015 Petr Zvonicek
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</pre>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header" onclick="toggle(this)">
+    <span class="lib-name">TOCropViewController</span>
+    <div class="lib-meta">
+      <span class="lib-version">3.1.2</span>
+      <span class="lib-badge badge-mit">MIT</span>
+      <span class="chevron">›</span>
+    </div>
+  </div>
+  <div class="card-body">
+    <a class="lib-url" href="https://github.com/TimOliver/TOCropViewController">https://github.com/TimOliver/TOCropViewController</a>
+    <pre class="license-text">Copyright (c) 2015-2022 Tim Oliver
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</pre>
+  </div>
+</div>
+
+<div class="section-title">UI</div>
+
+<div class="card">
+  <div class="card-header" onclick="toggle(this)">
+    <span class="lib-name">SVProgressHUD</span>
+    <div class="lib-meta">
+      <span class="lib-version">2.3.1</span>
+      <span class="lib-badge badge-mit">MIT</span>
+      <span class="chevron">›</span>
+    </div>
+  </div>
+  <div class="card-body">
+    <a class="lib-url" href="https://github.com/SVProgressHUD/SVProgressHUD">https://github.com/SVProgressHUD/SVProgressHUD</a>
+    <pre class="license-text">Copyright (c) 2011-2023 Sam Vermette, Tobias Tiemerding and contributors.
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</pre>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header" onclick="toggle(this)">
+    <span class="lib-name">REFrostedViewController</span>
+    <div class="lib-meta">
+      <span class="lib-version">2.4.8</span>
+      <span class="lib-badge badge-mit">MIT</span>
+      <span class="chevron">›</span>
+    </div>
+  </div>
+  <div class="card-body">
+    <a class="lib-url" href="https://github.com/romaonthego/REFrostedViewController">https://github.com/romaonthego/REFrostedViewController</a>
+    <pre class="license-text">Copyright (c) 2013 Roman Efimov
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</pre>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header" onclick="toggle(this)">
+    <span class="lib-name">PullToRefresher</span>
+    <div class="lib-meta">
+      <span class="lib-version">3.3</span>
+      <span class="lib-badge badge-mit">MIT</span>
+      <span class="chevron">›</span>
+    </div>
+  </div>
+  <div class="card-body">
+    <a class="lib-url" href="https://github.com/Yalantis/PullToRefresh">https://github.com/Yalantis/PullToRefresh</a>
+    <pre class="license-text">Copyright (c) 2015 Yalantis
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</pre>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header" onclick="toggle(this)">
+    <span class="lib-name">Toast-Swift</span>
+    <div class="lib-meta">
+      <span class="lib-version">5.1.1</span>
+      <span class="lib-badge badge-mit">MIT</span>
+      <span class="chevron">›</span>
+    </div>
+  </div>
+  <div class="card-body">
+    <a class="lib-url" href="https://github.com/scalessec/Toast-Swift">https://github.com/scalessec/Toast-Swift</a>
+    <pre class="license-text">Copyright (c) 2015 Charles Scalesse.
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</pre>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header" onclick="toggle(this)">
+    <span class="lib-name">ActionSheetController</span>
+    <div class="lib-meta">
+      <span class="lib-version">4.2.0</span>
+      <span class="lib-badge badge-mit">MIT</span>
+      <span class="chevron">›</span>
+    </div>
+  </div>
+  <div class="card-body">
+    <a class="lib-url" href="https://github.com/hhrogersii/ActionSheetController">https://github.com/hhrogersii/ActionSheetController</a>
+    <pre class="license-text">Copyright (c) 2015 Moch
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</pre>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header" onclick="toggle(this)">
+    <span class="lib-name">Material</span>
+    <div class="lib-meta">
+      <span class="lib-version">3.1.8</span>
+      <span class="lib-badge badge-mit">MIT</span>
+      <span class="chevron">›</span>
+    </div>
+  </div>
+  <div class="card-body">
+    <a class="lib-url" href="https://github.com/CosmicMind/Material">https://github.com/CosmicMind/Material</a>
+    <pre class="license-text">Copyright (c) 2019 CosmicMind, Inc. &lt;http://cosmicmind.com&gt;
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</pre>
+  </div>
+</div>
+
+<div class="section-title">Utilities</div>
+
+<div class="card">
+  <div class="card-header" onclick="toggle(this)">
+    <span class="lib-name">SwiftKeychainWrapper</span>
+    <div class="lib-meta">
+      <span class="lib-version">4.0.1</span>
+      <span class="lib-badge badge-mit">MIT</span>
+      <span class="chevron">›</span>
+    </div>
+  </div>
+  <div class="card-body">
+    <a class="lib-url" href="https://github.com/jrendel/SwiftKeychainWrapper">https://github.com/jrendel/SwiftKeychainWrapper</a>
+    <pre class="license-text">Copyright (c) 2014 Jason Rendel
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</pre>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header" onclick="toggle(this)">
+    <span class="lib-name">AEXML</span>
+    <div class="lib-meta">
+      <span class="lib-version">4.7.0</span>
+      <span class="lib-badge badge-mit">MIT</span>
+      <span class="chevron">›</span>
+    </div>
+  </div>
+  <div class="card-body">
+    <a class="lib-url" href="https://github.com/tadija/AEXML">https://github.com/tadija/AEXML</a>
+    <pre class="license-text">Copyright (c) 2014-2020 Marko Tadić
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</pre>
+  </div>
+</div>
+
+<div class="section-title">Social Login</div>
+
+<div class="card">
+  <div class="card-header" onclick="toggle(this)">
+    <span class="lib-name">Google Sign-In</span>
+    <div class="lib-meta">
+      <span class="lib-version">7.1.0</span>
+      <span class="lib-badge badge-apache">Apache 2.0</span>
+      <span class="chevron">›</span>
+    </div>
+  </div>
+  <div class="card-body">
+    <a class="lib-url" href="https://github.com/google/GoogleSignIn-iOS">https://github.com/google/GoogleSignIn-iOS</a>
+    <pre class="license-text">Copyright 2021 Google LLC
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.</pre>
+  </div>
+</div>
+
+<div class="section-title">Firebase</div>
+
+<div class="card">
+  <div class="card-header" onclick="toggle(this)">
+    <span class="lib-name">Firebase iOS SDK</span>
+    <div class="lib-meta">
+      <span class="lib-version">10.29.0</span>
+      <span class="lib-badge badge-apache">Apache 2.0</span>
+      <span class="chevron">›</span>
+    </div>
+  </div>
+  <div class="card-body">
+    <a class="lib-url" href="https://github.com/firebase/firebase-ios-sdk">https://github.com/firebase/firebase-ios-sdk</a>
+    <pre class="license-text">Copyright 2017 Google LLC
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.</pre>
+  </div>
+</div>
+
+<script>
+function toggle(header) {
+  var body = header.nextElementSibling;
+  var chevron = header.querySelector('.chevron');
+  var isOpen = body.classList.contains('open');
+  body.classList.toggle('open', !isOpen);
+  chevron.classList.toggle('open', !isOpen);
+}
+</script>
+</body>
+</html>

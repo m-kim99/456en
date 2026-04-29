@@ -526,11 +526,9 @@ extension IntroVC: BaseNavigation {
             snsStack.bottomAnchor.constraint(equalTo: snsContainer.bottomAnchor, constant: -12)
         ])
         
-        // Kakao(0), Google(1), Naver(3), Apple(4) - Apple retained for iOS
+        // Google(1), Apple(4)
         let snsIcons: [(String, Int)] = [
-            ("Icon-SNS-kakao-60", 0),
             ("Icon-SNS-Google-60", 1),
-            ("Icon-SNS-Naver-60", 3),
             ("icon_sns_apple_60", 4)
         ]
         for (imageName, tag) in snsIcons {
@@ -561,10 +559,11 @@ extension IntroVC: BaseNavigation {
     @IBAction func onSignupSNS(_ sender: UIButton) {
         // onSignup(sender)
         
-        if sender.tag == 0 {
-            // kakao
-            snsManager.start(type: .Kakao)
-        } else if sender.tag == 1 {
+//        if sender.tag == 0 {
+//            // kakao
+//            snsManager.start(type: .Kakao)
+//        } else
+        if sender.tag == 1 {
             // google
 //             snsManager.start(type: .Google)
             guard let clientID = FirebaseApp.app()?.options.clientID else { return }
@@ -577,9 +576,9 @@ extension IntroVC: BaseNavigation {
                 let snsId = result?.user.userID
                 self?.snsLogin(_id: snsId!, _pwd: snsId!, _type: 1)
             }
-        } else if sender.tag == 3 {
-            // naver
-            snsManager.start(type: .Naver)
+//        } else if sender.tag == 3 {
+//            // naver
+//            snsManager.start(type: .Naver)
         } else {
             // apple
             let appleIDProvider = ASAuthorizationAppleIDProvider()
@@ -756,12 +755,12 @@ extension IntroVC: SnsManagerDelegate {
         var snsId = ""
         var type = 0
         switch me.user_login_type {
-        case .Naver?:
-            type = 2
-            snsId = me.user_sns_id
-        case .Kakao?:
-            type = 5
-            snsId = me.user_sns_id
+//        case .Naver?:
+//            type = 2
+//            snsId = me.user_sns_id
+//        case .Kakao?:
+//            type = 5
+//            snsId = me.user_sns_id
         case .Google?:
             type = 1
             snsId = me.user_sns_id

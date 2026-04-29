@@ -18,13 +18,13 @@ protocol SnsManagerDelegate {
 class SnsManager {
     private var mViewController: UIViewController?
     private var mSnsUserInfo = SnsUserInfo()
-    private var mNaverUtil: NaverUtils
+//    private var mNaverUtil: NaverUtils
     public var delegate: SnsManagerDelegate?
 //    private var mGoogleUtil: GoogleUtils
     
     public init(_ vc: UIViewController?) {
         self.mViewController = vc
-        self.mNaverUtil = NaverUtils(mViewController)
+//        self.mNaverUtil = NaverUtils(mViewController)
 //        self.mGoogleUtil = GoogleUtils(mViewController)
 //        self.mGoogleUtil = GoogleSignInAuthenticator(authViewModel: mViewController!.self)
     }
@@ -51,25 +51,26 @@ class SnsManager {
     }
     
     public func start(type: SnsType) {
-        if type == .Kakao {
-            KakaotalkUtils.getKakaotalkInfo(from_vc: mViewController!, callback: { userInfo in
-                
-                self.mSnsUserInfo.user_name = userInfo.name
-                gMeInfo.user_sns_id = userInfo.id
-                gMeInfo.user_name = userInfo.name
-                gMeInfo.user_email = userInfo.email
-                gMeInfo.user_photo_url = userInfo.profile_img_url
-                gMeInfo.user_birth = userInfo.birthday
-                gMeInfo.user_login_type = .Kakao
-                
-                self.requestLogin()
-            }) { _ in
-                self.delegate?.snsAuthError(type, msg: "카카오톡정보를 얻어올수 없습니다.")
-            }
-        } else if type == .Naver {
-            mNaverUtil.delegate = self
-            mNaverUtil.getNaverInfo()
-        } else if type == .Google {
+//        if type == .Kakao {
+//            KakaotalkUtils.getKakaotalkInfo(from_vc: mViewController!, callback: { userInfo in
+//
+//                self.mSnsUserInfo.user_name = userInfo.name
+//                gMeInfo.user_sns_id = userInfo.id
+//                gMeInfo.user_name = userInfo.name
+//                gMeInfo.user_email = userInfo.email
+//                gMeInfo.user_photo_url = userInfo.profile_img_url
+//                gMeInfo.user_birth = userInfo.birthday
+//                gMeInfo.user_login_type = .Kakao
+//
+//                self.requestLogin()
+//            }) { _ in
+//                self.delegate?.snsAuthError(type, msg: "카카오톡정보를 얻어올수 없습니다.")
+//            }
+//        } else if type == .Naver {
+//            mNaverUtil.delegate = self
+//            mNaverUtil.getNaverInfo()
+//        } else
+        if type == .Google {
 //            mGoogleUtil.delegate = self
 //            mGoogleUtil.GoogleSignIn()
         }
@@ -77,14 +78,14 @@ class SnsManager {
     
     public func logout() {
         switch gMeInfo.user_login_type {
-        case .Kakao?:
-            KakaotalkUtils.logout()
-        case .Naver?:
-            mNaverUtil.logout()
+//        case .Kakao?:
+//            KakaotalkUtils.logout()
+//        case .Naver?:
+//            mNaverUtil.logout()
         case .Google?:
             // mGoogleUtil.logout()
-            mNaverUtil.logout()
-        case .none:
+            break
+        default:
             print("no Unknown")
         }
     }
@@ -118,6 +119,7 @@ class SnsManager {
     }
 }
 
+/*
 extension SnsManager: NaverUtilsDelegate {
     func NaverSign(info userInfo: NaverUserInfo) {
         gMeInfo.user_sns_id = userInfo.id
@@ -134,6 +136,7 @@ extension SnsManager: NaverUtilsDelegate {
         delegate?.snsAuthError(.Naver, msg: "네이버정보를 얻어올수 없습니다.")
     }
 }
+*/
 
 /*
  extension SnsManager: GoogleUtilsDelegate {

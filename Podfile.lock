@@ -174,17 +174,6 @@ PODS:
     - IQKeyboardCore
   - IQTextView (1.0.5):
     - IQKeyboardToolbar/Placeholderable
-  - KakaoSDKAuth (2.22.7):
-    - KakaoSDKCommon (= 2.22.7)
-  - KakaoSDKCommon (2.22.7):
-    - KakaoSDKCommon/Common (= 2.22.7)
-    - KakaoSDKCommon/Network (= 2.22.7)
-  - KakaoSDKCommon/Common (2.22.7)
-  - KakaoSDKCommon/Network (2.22.7):
-    - Alamofire (~> 5.9.0)
-    - KakaoSDKCommon/Common (= 2.22.7)
-  - KakaoSDKUser (2.22.7):
-    - KakaoSDKAuth (= 2.22.7)
   - Kingfisher (7.12.0)
   - KMPlaceholderTextView (1.4.0)
   - Material (3.1.8):
@@ -200,7 +189,6 @@ PODS:
     - nanopb/encode (= 2.30910.0)
   - nanopb/decode (2.30910.0)
   - nanopb/encode (2.30910.0)
-  - naveridlogin-sdk-ios (4.2.3)
   - PromisesObjC (2.4.0)
   - PullToRefresher (3.3)
   - RecaptchaInterop (100.0.0)
@@ -231,13 +219,9 @@ DEPENDENCIES:
   - GrowingTextView
   - ImageSlideshow
   - IQKeyboardManagerSwift
-  - KakaoSDKAuth
-  - KakaoSDKCommon
-  - KakaoSDKUser
   - Kingfisher (~> 7.12)
   - KMPlaceholderTextView
   - Material
-  - naveridlogin-sdk-ios (~> 4.2)
   - PullToRefresher
   - REFrostedViewController (~> 2.4)
   - SKPhotoBrowser
@@ -283,16 +267,12 @@ SPEC REPOS:
     - IQKeyboardToolbarManager
     - IQTextInputViewNotification
     - IQTextView
-    - KakaoSDKAuth
-    - KakaoSDKCommon
-    - KakaoSDKUser
     - Kingfisher
     - KMPlaceholderTextView
     - Material
     - ModalTransitioning
     - Motion
     - nanopb
-    - naveridlogin-sdk-ios
     - PromisesObjC
     - PullToRefresher
     - RecaptchaInterop
@@ -339,16 +319,12 @@ SPEC CHECKSUMS:
   IQKeyboardToolbarManager: d449479b5843d4a3fb902d03bf62d6ca031ac20e
   IQTextInputViewNotification: 3b9fb27a16e7ee8958cc9092cfb07a1a9e1fd559
   IQTextView: ae13b4922f22e6f027f62c557d9f4f236b19d5c7
-  KakaoSDKAuth: 45204252ff7c379c0f86c5573f97ec36885afca0
-  KakaoSDKCommon: 132164a6bac8bcd3a4346d3bf777f34f8f39fdca
-  KakaoSDKUser: 4c9cf1da78710d19d0b2c2dd32d1a44c544cdfa4
   Kingfisher: 53a10ea35051a436b5fb626ca2dd8f3144d755e9
   KMPlaceholderTextView: 2206c3df39979e9396e2d96fa9f427a8951121b0
   Material: a2a3f400a3b549d53ef89e56c58c4535b29db387
   ModalTransitioning: 79ead665b6f61903332166ee2455b0ca57bfbcff
   Motion: cf1e060e489f6661126374d5c60dbd2ed991605c
   nanopb: 438bc412db1928dac798aa6fd75726007be04262
-  naveridlogin-sdk-ios: d9d46d02119d303023d7000cd5963864d5bb89e5
   PromisesObjC: f5707f49cb48b9636751c5b2e7d227e43fba9f47
   PullToRefresher: 6fc2ab6494caf949bcf6f0223ffd23f9d21a06f6
   RecaptchaInterop: 7d1a4a01a6b2cb1610a47ef3f85f0c411434cb21
@@ -364,6 +340,6 @@ SPEC CHECKSUMS:
   TouchAreaInsets: eb1ad705965a142a30a9c6a3405bec5e46d8613b
   WXImageCompress: 86c7a4d028c7fc9c74181468c318a9ec688fcdac
 
-PODFILE CHECKSUM: 126b9f17ff2fab742303efc407689ce0b5c5784b
+PODFILE CHECKSUM: 4ee12c751f82cbd9c48faa8251644513675d47fe
 
 COCOAPODS: 1.16.2

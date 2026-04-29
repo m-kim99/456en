@@ -31,7 +31,7 @@ target 'Traystorage' do
 
   # Auth & SNS
   pod 'SwiftKeychainWrapper'
-  pod 'naveridlogin-sdk-ios', '~> 4.2'
+  # pod 'naveridlogin-sdk-ios', '~> 4.2'
   pod 'GoogleSignIn', '~> 7.1'
 
   # Firebase (pinned to 10.x to keep DynamicLinks which was removed in 11+)
@@ -41,9 +41,9 @@ target 'Traystorage' do
   pod 'Firebase/Auth'
 
   # Kakao SDK (replacing legacy KakaoOpenSDK manual frameworks)
-  pod 'KakaoSDKCommon'
-  pod 'KakaoSDKAuth'
-  pod 'KakaoSDKUser'
+  # pod 'KakaoSDKCommon'
+  # pod 'KakaoSDKAuth'
+  # pod 'KakaoSDKUser'
 
   # Utils
   pod 'AEXML'

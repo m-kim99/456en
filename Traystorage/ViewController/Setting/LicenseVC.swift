@@ -24,9 +24,8 @@ class LicenseVC: BaseVC {
         webView.backgroundColor = UIColor.clear
         vwContent.addSubview(webView)
 
-        let loadurl = URL(string: "http://traystorage.us/server/api/App/term?type=opensource")
-        if loadurl != nil {
-            webView.load(URLRequest(url: loadurl!))
+        if let url = Bundle.main.url(forResource: "opensource_licenses", withExtension: "html") {
+            webView.loadFileURL(url, allowingReadAccessTo: url)
         }
     }
 

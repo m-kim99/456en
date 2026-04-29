@@ -6,11 +6,11 @@
 //
 import Firebase
 import UIKit
-import NaverThirdPartyLogin
+//import NaverThirdPartyLogin
 import GoogleSignIn
 import FirebaseDynamicLinks
-import KakaoSDKCommon
-import KakaoSDKAuth
+//import KakaoSDKCommon
+//import KakaoSDKAuth
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -20,20 +20,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
 
-        let thirdConn: NaverThirdPartyLoginConnection = NaverThirdPartyLoginConnection.getSharedInstance()
-        thirdConn.isNaverAppOauthEnable = false
-        thirdConn.isInAppOauthEnable = true
-        thirdConn.setOnlyPortraitSupportInIphone(true)
-        thirdConn.serviceUrlScheme = kServiceAppUrlScheme
-        thirdConn.consumerKey = kConsumerKey
-        thirdConn.consumerSecret = kConsumerSecret
-        thirdConn.setOnlyPortraitSupportInIphone(true)
+//        let thirdConn: NaverThirdPartyLoginConnection = NaverThirdPartyLoginConnection.getSharedInstance()
+//        thirdConn.isNaverAppOauthEnable = false
+//        thirdConn.isInAppOauthEnable = true
+//        thirdConn.setOnlyPortraitSupportInIphone(true)
+//        thirdConn.serviceUrlScheme = kServiceAppUrlScheme
+//        thirdConn.consumerKey = kConsumerKey
+//        thirdConn.consumerSecret = kConsumerSecret
+//        thirdConn.setOnlyPortraitSupportInIphone(true)
         
         FirebaseApp.configure()
         
         // Kakao SDK 초기화
-        let kakaoAppKey = Bundle.main.infoDictionary?["KAKAO_APP_KEY"] as? String ?? ""
-        KakaoSDK.initSDK(appKey: kakaoAppKey)
+//        let kakaoAppKey = Bundle.main.infoDictionary?["KAKAO_APP_KEY"] as? String ?? ""
+//        KakaoSDK.initSDK(appKey: kakaoAppKey)
         
         return true
     }
@@ -53,21 +53,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         
         // kakao
-        if AuthApi.isKakaoTalkLoginUrl(url) {
-            return AuthController.handleOpenUrl(url: url)
-        }
+//        if AuthApi.isKakaoTalkLoginUrl(url) {
+//            return AuthController.handleOpenUrl(url: url)
+//        }
         
         return true
     }
     
     func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey: Any] = [:]) -> Bool {
         // kakao
-        if AuthApi.isKakaoTalkLoginUrl(url) {
-            return AuthController.handleOpenUrl(url: url)
-        }
+//        if AuthApi.isKakaoTalkLoginUrl(url) {
+//            return AuthController.handleOpenUrl(url: url)
+//        }
         
         // 네이버 로그인 처리
-        NaverThirdPartyLoginConnection.getSharedInstance()?.application(app, open: url, options: options)
+//        NaverThirdPartyLoginConnection.getSharedInstance()?.application(app, open: url, options: options)
         
         // Google Sign In 처리
         return GIDSignIn.sharedInstance.handle(url)
@@ -75,9 +75,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
        
     func application(_ application: UIApplication, handleOpen url: URL) -> Bool {
         // kakao
-        if AuthApi.isKakaoTalkLoginUrl(url) {
-            return AuthController.handleOpenUrl(url: url)
-        }
+//        if AuthApi.isKakaoTalkLoginUrl(url) {
+//            return AuthController.handleOpenUrl(url: url)
+//        }
         return false
     }
        

@@ -7,9 +7,10 @@
 //
 
 import Foundation
-import KakaoSDKAuth
-import KakaoSDKUser
+//import KakaoSDKAuth
+//import KakaoSDKUser
 
+/*
 class KakaotalkUtils {
     public static func getKakaotalkInfo(from_vc: UIViewController, callback: @escaping (_ userInfo: KakaotalkUserInfo) -> Void, error_callback: @escaping (_ error: Error) -> Void) {
         
@@ -62,3 +63,4 @@ class KakaotalkUtils {
         }
     }
 }
+*/

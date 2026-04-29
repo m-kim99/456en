@@ -26,6 +26,7 @@
 		10B8209827957CEC00FF93E9 /* vc_notice_detail.xib in Resources */ = {isa = PBXBuildFile; fileRef = 10B8209727957CEC00FF93E9 /* vc_notice_detail.xib */; };
 		10D45B5C279540C8001DF4FF /* FaqCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10D45B5B279540C8001DF4FF /* FaqCVC.swift */; };
 		10DE45C6279563DE00C2F74A /* vc_license.xib in Resources */ = {isa = PBXBuildFile; fileRef = 10DE45C5279563DE00C2F74A /* vc_license.xib */; };
+		AA00BB11CC22DD33EE44FF01 /* opensource_licenses.html in Resources */ = {isa = PBXBuildFile; fileRef = AA00BB11CC22DD33EE44FF00 /* opensource_licenses.html */; };
 		10DE45C82795646F00C2F74A /* tvc_license.xib in Resources */ = {isa = PBXBuildFile; fileRef = 10DE45C72795646F00C2F74A /* tvc_license.xib */; };
 		10DE45CB27956A9B00C2F74A /* LicenseTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10DE45C927956A9B00C2F74A /* LicenseTVC.swift */; };
 		10DE45CC27956A9B00C2F74A /* LicenseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10DE45CA27956A9B00C2F74A /* LicenseVC.swift */; };
@@ -209,6 +210,7 @@
 		10B8209727957CEC00FF93E9 /* vc_notice_detail.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = vc_notice_detail.xib; sourceTree = "<group>"; };
 		10D45B5B279540C8001DF4FF /* FaqCVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FaqCVC.swift; sourceTree = "<group>"; };
 		10DE45C5279563DE00C2F74A /* vc_license.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = vc_license.xib; sourceTree = "<group>"; };
+		AA00BB11CC22DD33EE44FF00 /* opensource_licenses.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = opensource_licenses.html; sourceTree = "<group>"; };
 		10DE45C72795646F00C2F74A /* tvc_license.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = tvc_license.xib; sourceTree = "<group>"; };
 		10DE45C927956A9B00C2F74A /* LicenseTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LicenseTVC.swift; sourceTree = "<group>"; };
 		10DE45CA27956A9B00C2F74A /* LicenseVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LicenseVC.swift; sourceTree = "<group>"; };
@@ -474,6 +476,7 @@
 				79632CDB2785DD87007C427E /* LaunchScreen.storyboard */,
 				79632CDE2785DD87007C427E /* Info.plist */,
 				7A6752882798DD7C003F3DB9 /* Localizable.strings */,
+				AA00BB11CC22DD33EE44FF00 /* opensource_licenses.html */,
 			);
 			path = Traystorage;
 			sourceTree = "<group>";
@@ -936,6 +939,7 @@
 				7A56993D279787EC003CA963 /* item_label.xib in Resources */,
 				7A8161D92792DF38000266A0 /* vc_notice.xib in Resources */,
 				10DE45C6279563DE00C2F74A /* vc_license.xib in Resources */,
+				AA00BB11CC22DD33EE44FF01 /* opensource_licenses.html in Resources */,
 				7A4F990627A4D3D000E8FC62 /* vc_agree_page.xib in Resources */,
 				7A4B031C27A8DC2E007649B6 /* tvc_setting_logout.xib in Resources */,
 				7A8C001727ABA64900417412 /* dialog_loading.xib in Resources */,
@@ -1301,7 +1305,7 @@
 				CODE_SIGN_ENTITLEMENTS = Traystorage/Traystorage.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = 7X7X2AY733;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GENERATE_INFOPLIST_FILE = YES;
@@ -1322,7 +1326,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.5;
+				MARKETING_VERSION = 1.0.6;
 				PRODUCT_BUNDLE_IDENTIFIER = com.us.traystorage;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1342,7 +1346,7 @@
 				CODE_SIGN_ENTITLEMENTS = Traystorage/Traystorage.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = 7X7X2AY733;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GENERATE_INFOPLIST_FILE = YES;
@@ -1365,7 +1369,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.5;
+				MARKETING_VERSION = 1.0.6;
 				PRODUCT_BUNDLE_IDENTIFIER = com.us.traystorage;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

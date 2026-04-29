@@ -8,8 +8,9 @@
 
 import Foundation
 import AEXML
-import NaverThirdPartyLogin
+//import NaverThirdPartyLogin
 
+/*
 protocol NaverUtilsDelegate: AnyObject  {
     func NaverSign(info: NaverUserInfo)
     func NaverSignError()
@@ -128,3 +129,4 @@ extension NaverUtils : NaverThirdPartyLoginConnectionDelegate {
         print("oauth20ConnectionDidFinishDeleteToken")
     }
 }
+*/
