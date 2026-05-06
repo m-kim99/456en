@@ -570,7 +570,7 @@ extension IntroVC: BaseNavigation {
             GIDSignIn.sharedInstance.configuration = GIDConfiguration(clientID: clientID)
             GIDSignIn.sharedInstance.signIn(withPresenting: self) { [weak self] result, error in
                 if let error = error {
-                    self?.view.showToast("구글정보를 얻어올수 없습니다.")
+                    self?.view.showToast("Unable to retrieve Google account information.")
                     return
                 }
                 let snsId = result?.user.userID

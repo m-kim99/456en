@@ -117,12 +117,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, continue userActivity: NSUserActivity,
                      restorationHandler: @escaping ([UIUserActivityRestoring]?) -> Void) -> Bool {
+        guard let url = userActivity.webpageURL else { return false }
+        let urlString = url.absoluteString
+
+        // NFC 태그에서 직접 기록한 URL 처리
+        if urlString.contains("traystorageen.page.link/document/") {
+            Local.setDimLink(urlString)
+            NotificationCenter.default.post(name: NSNotification.Name("dimlink"), object: nil)
+            return true
+        }
+
+        // 기존 Dynamic Link 처리 (하위 호환)
         let handled = DynamicLinks.dynamicLinks()
-            .handleUniversalLink(userActivity.webpageURL!) { dynamiclink, error in
-                if error != nil {
-                    print(error as Any)
+            .handleUniversalLink(url) { dynamiclink, error in
+                if let error = error {
+                    print(error)
+                    return
                 }
-                print(dynamiclink as Any)
+                if let link = dynamiclink?.url?.absoluteString,
+                   link.contains("https://traystorageen.page.link/") {
+                    Local.setDimLink(link)
+                    NotificationCenter.default.post(name: NSNotification.Name("dimlink"), object: nil)
+                }
             }
 
         return handled

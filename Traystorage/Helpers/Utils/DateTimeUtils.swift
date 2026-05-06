@@ -46,16 +46,16 @@ class DateTimeUtils {
             dateFormatter.dateFormat = "yyyy.MM.dd"
             w_strExpression = dateFormatter.string(from: date)
         } else if w_nWeeks > 0 {
-            w_strExpression = String(format: "%d일전", w_nDiffDays)
+            w_strExpression = String(format: "%dd ago", w_nDiffDays)
         } else if w_nDiffDays > 0 {
-            w_strExpression = String(format: "%d일전", w_nDiffDays)
+            w_strExpression = String(format: "%dd ago", w_nDiffDays)
         } else if w_nDiffHours > 0 {
-            w_strExpression = String(format: "%d시간전", w_nDiffHours)
+            w_strExpression = String(format: "%dh ago", w_nDiffHours)
         } else if w_nDiffMins > 0 {
-            w_strExpression = String(format: "%d분전", w_nDiffMins)
+            w_strExpression = String(format: "%dm ago", w_nDiffMins)
         } else if w_nDiffSeconds >= 0 {
             // w_strExpression = String(format:"%dsec", w_nDiffSeconds)
-            w_strExpression = "방금"
+            w_strExpression = "Just now"
         }
 
         return w_strExpression

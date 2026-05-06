@@ -143,8 +143,11 @@
                                                                         <userDefinedRuntimeAttribute type="boolean" keyPath="isBold" value="YES"/>
                                                                     </userDefinedRuntimeAttributes>
                                                                 </label>
-                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" lineBreakMode="middleTruncation" changesSelectionAsPrimaryAction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="W77-nC-lnb">
-                                                                    <rect key="frame" x="49.666666666666671" y="0.0" width="32" height="50"/>
+                                                                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" lineBreakMode="middleTruncation" changesSelectionAsPrimaryAction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="W77-nC-lnb">
+                                                                    <rect key="frame" x="49.666666666666671" y="0.0" width="0" height="0"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="width" constant="0" id="pnl-w0-h1d"/>
+                                                                    </constraints>
                                                                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                                     <state key="normal" image="Icon-C-Edit-LineGray-32"/>
                                                                     <connections>

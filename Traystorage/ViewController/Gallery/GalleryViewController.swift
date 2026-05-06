@@ -108,12 +108,12 @@ class GalleryViewController: BaseVC {
     }
     
     func showDialog() {
-        let alert = UIAlertController(title: "권한 요청", message: "해당 기능을 사용하려면 모든 사진권한이 필요합니다.\n권한을 허용해주세요.", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "취소", style: .cancel) { _ in
+        let alert = UIAlertController(title: "Permission Required", message: "Photo access is required to use this feature.\nPlease grant permission in Settings.", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel) { _ in
             // self.checkPermission()
             self.popVC()
         }) // , handler: nil)
-        alert.addAction(UIAlertAction(title: "설정", style: .destructive) { _ in
+        alert.addAction(UIAlertAction(title: "Settings", style: .destructive) { _ in
             self.goSetting()
         })
         

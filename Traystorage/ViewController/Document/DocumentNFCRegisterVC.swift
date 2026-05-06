@@ -1,22 +1,16 @@
 import CoreNFC
-import Firebase
-import FirebaseDynamicLinks
 import UIKit
-import SVProgressHUD
 
 class DocumentNFCRegisterVC: BaseVC, NFCNDEFReaderSessionDelegate {
+    @IBOutlet weak var btnCancel: UIButton!
     var documentID = 0
     var documentCode = ""
-    var dimLink = ""
-
     var session: NFCNDEFReaderSession?
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        getDimLink()
-//        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-//            self.startNFCScan()
-//        }
+        startNFCScan()
     }
 
     func startNFCScan() {
@@ -29,27 +23,19 @@ class DocumentNFCRegisterVC: BaseVC, NFCNDEFReaderSessionDelegate {
     }
 
     func readerSession(_ session: NFCNDEFReaderSession, didDetectNDEFs messages: [NFCNDEFMessage]) {
-        for message in messages {
-            for record in message.records {
-                if let string = String(data: record.payload, encoding: .ascii) {
-                    print(string)
-                }
-            }
-        }
+        // invalidateAfterFirstRead is false, so didDetect tags: is called instead
     }
 
     func readerSession(_ session: NFCNDEFReaderSession, didDetect tags: [NFCNDEFTag]) {
         if tags.count > 1 {
-            // Restart polling in 500 milliseconds.
             let retryInterval = DispatchTimeInterval.milliseconds(500)
-            session.alertMessage = "Multiple tags detected. Please remove all tags and try again."
+            session.alertMessage = "More than 1 tag is detected. Please remove all tags and try again."
             DispatchQueue.global().asyncAfter(deadline: .now() + retryInterval) {
                 session.restartPolling()
             }
             return
         }
 
-        // Connect to the found tag and write an NDEF message to it.
         let tag = tags.first!
         session.connect(to: tag, completionHandler: { (error: Error?) in
             if error != nil {
@@ -60,99 +46,64 @@ class DocumentNFCRegisterVC: BaseVC, NFCNDEFReaderSessionDelegate {
 
             tag.queryNDEFStatus(completionHandler: { [self] (ndefStatus: NFCNDEFStatus, _: Int, error: Error?) in
                 guard error == nil else {
-                    session.alertMessage = "Unable to read the NFC tag status."
+                    session.alertMessage = "Unable to query the NDEF status of tag."
                     session.invalidate()
                     return
                 }
 
                 switch ndefStatus {
                 case .notSupported:
-                    session.alertMessage = "This tag is not supported."
+                    session.alertMessage = "Tag is not NDEF compliant."
                     session.invalidate()
                 case .readOnly:
-                    session.alertMessage = "This tag is read-only."
+                    session.alertMessage = "Tag is read only."
                     session.invalidate()
                 case .readWrite:
-
-//                    let message = NFCNDEFMessage(data: currentTime.data(using: .utf8)!)
-//                    var message: NFCNDEFMessage = .init(records: [])
-
-                    let uriPayloadFromString = NFCNDEFPayload.wellKnownTypeURIPayload(
-                        string: dimLink // dim link
-                    )!
-//                    let uriPayloadFromURL = NFCNDEFPayload.wellKnownTypeURIPayload(
-//                        url: URL(string: "www.apple.com")! // dim link
-//                    )!
-
-                    // 2
-//                    let textPayload = NFCNDEFPayload.wellKnownTypeTextPayload(
-//                        string: self.documentCode, // currentTime,
-//                        locale: Locale(identifier: "en")
-//                    )!
-
-                    // 3
-                    let customTextPayload = NFCNDEFPayload(
-                        format: .nfcWellKnown,
-                        type: "T".data(using: .utf8)!,
-                        identifier: Data(),
-                        payload: self.documentCode.data(using: .utf8)!
-                    )
-                    let message = NFCNDEFMessage(
-                        records: [
-//                            uriPayloadFromURL,
-//                            textPayload,
-                            customTextPayload,
-                            uriPayloadFromString,
-                        ]
-                    )
-                    tag.writeNDEF(message, completionHandler: { (error: Error?) in
-                        if error != nil {
-                            session.alertMessage = "Write NDEF message fail: \(error!)"
-                        } else {
-                            session.alertMessage = "Document registered to the NFC tag successfully."
-                            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-                                self.popVC()
-                            }
-                        }
-                        session.invalidate()
-                    })
+                    self.writeDocumentToTag(tag, session: session)
                 @unknown default:
-                    session.alertMessage = "Unknown NFC tag status."
+                    session.alertMessage = "Unknown NDEF tag status."
                     session.invalidate()
                 }
             })
         })
     }
 
-    func readerSession(_ session: NFCNDEFReaderSession, didInvalidateWithError error: Error) {
-        print(error.localizedDescription)
+    private func writeDocumentToTag(_ tag: NFCNDEFTag, session: NFCNDEFReaderSession) {
+        let dimLink = "traystorageen://document/\(self.documentID)"
+
+        // Record 0: text/plain MIME with documentCode (matches Android)
+        let codeData = self.documentCode.data(using: .utf8) ?? Data()
+        let mimePayload = NFCNDEFPayload(
+            format: .media,
+            type: "text/plain".data(using: .utf8)!,
+            identifier: Data(),
+            payload: codeData
+        )
+
+        // Record 1: URI record (matches Android)
+        guard let uriPayload = NFCNDEFPayload.wellKnownTypeURIPayload(string: dimLink) else {
+            session.alertMessage = "Failed to create URL payload."
+            session.invalidate()
+            return
+        }
+
+        let records: [NFCNDEFPayload] = [mimePayload, uriPayload]
+        let message = NFCNDEFMessage(records: records)
+
+        tag.writeNDEF(message, completionHandler: { (error: Error?) in
+            if let error = error {
+                session.alertMessage = "NFC tag write failed: \(error.localizedDescription)"
+            } else {
+                session.alertMessage = "Document registered to the NFC tag successfully."
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                    self.popVC()
+                }
+            }
+            session.invalidate()
+        })
     }
 
-    func getDimLink() {
-        SVProgressHUD.show()
-        let _url = String(format: "https://traystorageen.page.link/document/%d", documentID)
-
-        guard let link = URL(string: _url) else { return }
-        let dynamicLinksDomainURIPrefix = "https://traystorageen.page.link"
-        let linkBuilder = DynamicLinkComponents(link: link, domainURIPrefix: dynamicLinksDomainURIPrefix)
-        linkBuilder?.iOSParameters = DynamicLinkIOSParameters(bundleID: "com.us.traystorage")
-        linkBuilder?.iOSParameters?.appStoreID = "6474948759"
-        let info = DynamicLinkNavigationInfoParameters()
-        info.isForcedRedirectEnabled = true
-        linkBuilder?.navigationInfoParameters = info
-        linkBuilder?.androidParameters = DynamicLinkAndroidParameters(packageName: "com.us.traystorage")
-
-//        guard let longDynamicLink = linkBuilder?.url else { return }FIRDynamicLinkIOSParameters
-//        print("The long URL is: \(longDynamicLink)")
-//        dimLink = longDynamicLink.absoluteString
-//        linkBuilder?.options = DynamicLinkComponentsOptions()
-//        linkBuilder?.options!.pathLength = .short
-        linkBuilder?.shorten { url, _, _ in
-            // guard let url = url, error != nil else { return }
-            SVProgressHUD.dismiss()
-            print("The short URL is: \(url)")
-            self.dimLink = url!.absoluteString
-            self.startNFCScan()
-        }
+    func readerSession(_ session: NFCNDEFReaderSession, didInvalidateWithError error: Error) {
+        print(error.localizedDescription)
     }
 }

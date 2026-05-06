@@ -263,6 +263,11 @@ extension DocumentDetailVC: BaseRestApi {
             if code == 401 {
                 self?.vwEmptyTag.isHidden = false
                 self?.btnDelete.isHidden = true
+                if let self = self {
+                    AlertDialog.show(self, title: "empty_nfc_tag"._localized, message: "", okAction: {
+                        self.popVC()
+                    })
+                }
             } else {
                 self?.view.showToast(err)
             }

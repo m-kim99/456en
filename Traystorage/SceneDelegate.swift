@@ -78,16 +78,22 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     func scene(_ scene: UIScene, continue userActivity: NSUserActivity) {
         if let incomingURL = userActivity.webpageURL {
-            let _ = DynamicLinks.dynamicLinks().handleUniversalLink(incomingURL) { dynamicLink, _ in
+            let urlString = incomingURL.absoluteString
 
-                // dynamic link 처리
-                print(dynamicLink?.url?.absoluteString as Any)
+            // NFC 태그에서 직접 기록한 URL 처리
+            if urlString.contains("traystorageen.page.link/document/") {
+                Local.setDimLink(urlString)
+                NotificationCenter.default.post(name: NSNotification.Name("dimlink"), object: nil)
+                return
+            }
+
+            // 기존 Dynamic Link 처리 (하위 호환)
+            let _ = DynamicLinks.dynamicLinks().handleUniversalLink(incomingURL) { dynamicLink, _ in
                 let link = dynamicLink?.url?.absoluteString
                 if link == nil || link == "" {
                     return
                 }
-                if link!.contains("https://traystorageen.page.link") {
-                    print(link as Any)
+                if link!.contains("https://traystorageen.page.link/") {
                     Local.setDimLink(link!)
                     NotificationCenter.default.post(name: NSNotification.Name("dimlink"), object: nil)
                 }

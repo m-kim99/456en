@@ -59,7 +59,21 @@ public class ModelFAQCategory: ModelBase {
     override init(_ json: JSON) {
         super.init(json)
         faq_id = json["id"].intValue
-        name = json["name"].stringValue
+        name = ModelFAQCategory.translateName(json["name"].stringValue)
+    }
+
+    private static let nameMap: [String: String] = [
+        "사용법": "How to Use",
+        "계정": "Account",
+        "결제": "Payment",
+        "기타": "Other",
+        "오류": "Error",
+        "문의": "Inquiry",
+        "공지": "Notice",
+    ]
+
+    private static func translateName(_ name: String) -> String {
+        return nameMap[name] ?? name
     }
 }
 

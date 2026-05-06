@@ -328,17 +328,17 @@ class CommonUtil {
                 dateFormatter.dateFormat = "yyyy.MM.dd"
                 w_strRet = dateFormatter.string(from: date)
             } else {
-                w_strRet = String(format: "%d일 전", w_nDays)
+                w_strRet = String(format: "%dd ago", w_nDays)
             }
             
         } else if w_nHours > 0 {
-            w_strRet = String(format: "%d시간 전", w_nHours)
+            w_strRet = String(format: "%dh ago", w_nHours)
         } else if w_nMins > 0 {
-            w_strRet = String(format: "%d분 전", w_nMins)
+            w_strRet = String(format: "%dm ago", w_nMins)
         } else if w_nSecs > 0 {
-            w_strRet = String(format: "%d초 전", w_nSecs)
+            w_strRet = String(format: "%ds ago", w_nSecs)
         } else {
-            w_strRet = String("방금")
+            w_strRet = String("Just now")
         }
         
         return w_strRet
@@ -379,16 +379,16 @@ class CommonUtil {
             dateFormatter.dateFormat = "yyyy.MM.dd"
             w_strExpression = dateFormatter.string(from: date)
         } else if w_nWeeks > 0 {
-            w_strExpression = String(format: "%d일전", w_nDiffDays)
+            w_strExpression = String(format: "%dd ago", w_nDiffDays)
         } else if w_nDiffDays > 0 {
-            w_strExpression = String(format: "%d일전", w_nDiffDays)
+            w_strExpression = String(format: "%dd ago", w_nDiffDays)
         } else if w_nDiffHours > 0 {
-            w_strExpression = String(format: "%d시간전", w_nDiffHours)
+            w_strExpression = String(format: "%dh ago", w_nDiffHours)
         } else if w_nDiffMins > 0 {
-            w_strExpression = String(format: "%d분전", w_nDiffMins)
+            w_strExpression = String(format: "%dm ago", w_nDiffMins)
         } else if w_nDiffSeconds >= 0 {
             // w_strExpression = String(format:"%dsec", w_nDiffSeconds)
-            w_strExpression = "방금"
+            w_strExpression = "Just now"
         }
         
         return w_strExpression
@@ -574,7 +574,7 @@ class CommonUtil {
     static func getPlayTime1(data: ModelSMatch) -> String {
         let month = data.start_date.components(separatedBy: "-")[1]
         let day = data.start_date.components(separatedBy: "-")[2]
-        let WEEKS = ["일요일", "월요일", "화요일", "수요일", "목요일", "금요일", "토요일"]
+        let WEEKS = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
         let strWeek = WEEKS[data.day]
 
         let makeDate = data.start_date + " " + data.start_time.substring(to: 5)
@@ -594,9 +594,9 @@ class CommonUtil {
         let diffMin = data.time_length % 60
         var result = ""
         if diffMin == 0 {
-            result = String(format: "%@월%@일 %@ %@~%@(%d%@)", month, day, strWeek, startTime, endTime, diffHour, "hour".localized)
+            result = String(format: "%@/%@ %@ %@~%@(%d%@)", month, day, strWeek, startTime, endTime, diffHour, "hour".localized)
         } else {
-            result = String(format: "%@월%@일 %@ %@~%@(%d%@ %d%@)", month, day, strWeek, startTime, endTime, diffHour, "hour".localized, diffMin, "min".localized)
+            result = String(format: "%@/%@ %@ %@~%@(%d%@ %d%@)", month, day, strWeek, startTime, endTime, diffHour, "hour".localized, diffMin, "min".localized)
         }
         
         return result
