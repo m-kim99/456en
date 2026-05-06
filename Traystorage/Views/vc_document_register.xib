@@ -162,7 +162,7 @@
                                                                                     <color key="value" systemColor="systemGray6Color"/>
                                                                                 </userDefinedRuntimeAttribute>
                                                                                 <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                                                    <real key="value" value="4"/>
+                                                                                    <real key="value" value="5"/>
                                                                                 </userDefinedRuntimeAttribute>
                                                                             </userDefinedRuntimeAttributes>
                                                                             <connections>
@@ -223,6 +223,9 @@
                                                                         <userDefinedRuntimeAttribute type="number" keyPath="xFontSize">
                                                                             <real key="value" value="15"/>
                                                                         </userDefinedRuntimeAttribute>
+                                                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                            <real key="value" value="5"/>
+                                                                        </userDefinedRuntimeAttribute>
                                                                     </userDefinedRuntimeAttributes>
                                                                     <connections>
                                                                         <action selector="onTitleChanged:" destination="-1" eventType="editingChanged" id="SJh-Cx-yxB"/>
@@ -236,6 +239,11 @@
                                                                             <rect key="frame" x="0.0" y="0.0" width="374" height="150"/>
                                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                             <textInputTraits key="textInputTraits"/>
+                                                                            <userDefinedRuntimeAttributes>
+                                                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                                    <real key="value" value="5"/>
+                                                                                </userDefinedRuntimeAttribute>
+                                                                            </userDefinedRuntimeAttributes>
                                                                         </textField>
                                                                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="qgP-jO-Cnd">
                                                                             <rect key="frame" x="4" y="4" width="366" height="142"/>
@@ -359,6 +367,9 @@
                                                                             <textInputTraits key="textInputTraits"/>
                                                                             <userDefinedRuntimeAttributes>
                                                                                 <userDefinedRuntimeAttribute type="string" keyPath="xibPlaceholder" value="doc_tag_hint"/>
+                                                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                                    <real key="value" value="5"/>
+                                                                                </userDefinedRuntimeAttribute>
                                                                             </userDefinedRuntimeAttributes>
                                                                             <connections>
                                                                                 <outlet property="delegate" destination="-1" id="r8m-YV-L2h"/>
