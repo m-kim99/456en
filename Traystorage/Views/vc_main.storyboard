@@ -24,7 +24,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RRg-a7-Cte" userLabel="header">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="60"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo_texttype" translatesAutoresizingMaskIntoConstraints="NO" id="mLQ-YP-fG5" tag="200">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="view" translatesAutoresizingMaskIntoConstraints="NO" id="mLQ-YP-fG5" tag="200">
                                                 <rect key="frame" x="16" y="10" width="160" height="40"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="160" id="aLx-Ky-m3R"/>
@@ -563,7 +563,7 @@
         <image name="ic_search" width="36" height="36"/>
         <image name="icon_upload_16 copy" width="16" height="16"/>
         <image name="img_Nodocuments_150" width="150" height="150"/>
-        <image name="logo_texttype" width="160" height="40"/>
+        <image name="view" width="750" height="126"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
