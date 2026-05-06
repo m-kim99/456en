@@ -106,7 +106,8 @@ class IntroVC: BaseVC {
         splashView = splash
         splashLogoImageView = logoIV
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) { [weak self] in
+        let splashDelay = Local.getDimLink() != "" ? 0.0 : 1.0
+        DispatchQueue.main.asyncAfter(deadline: .now() + splashDelay) { [weak self] in
             self?.splashPhase2()
         }
     }
@@ -130,7 +131,8 @@ class IntroVC: BaseVC {
             logoIV.heightAnchor.constraint(equalToConstant: logoHeight)
         ])
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) { [weak self] in
+        let completeDelay = Local.getDimLink() != "" ? 0.0 : 1.0
+        DispatchQueue.main.asyncAfter(deadline: .now() + completeDelay) { [weak self] in
             self?.onSplashComplete()
         }
     }
@@ -157,7 +159,11 @@ class IntroVC: BaseVC {
         let isAutoLogin = ud.bool(forKey: Local.PREFS_APP_AUTO_LOGIN.rawValue)
         if isAutoLogin {
             hideSplash()
-            checkVersion()
+            if Local.getDimLink() != "" {
+                startApp()
+            } else {
+                checkVersion()
+            }
         } else {
             Local.deleteUser()
 

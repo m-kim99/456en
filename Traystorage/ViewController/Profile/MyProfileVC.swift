@@ -14,6 +14,7 @@ class MyProfileVC: BaseVC {
 
     @IBOutlet var birthdayEdit: UITextField!
     @IBOutlet var birthdayButton: UIButton!
+    @IBOutlet var birthdayArrow: UIImageView!
     @IBOutlet var emailEdit: UITextField!
     @IBOutlet var maleButton: UIButton!
     @IBOutlet var femaleButton: UIButton!
@@ -77,6 +78,7 @@ class MyProfileVC: BaseVC {
 
         birthdayEdit.isEnabled = isNameEditing
         birthdayButton.isEnabled = isNameEditing
+        birthdayArrow.isHidden = !isNameEditing
         emailEdit.isEnabled = isNameEditing
         maleButton.isUserInteractionEnabled = isNameEditing
         femaleButton.isUserInteractionEnabled = isNameEditing

@@ -17,6 +17,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MyProfileVC" customModule="Traystorage" customModuleProvider="target">
             <connections>
+                <outlet property="birthdayArrow" destination="mYQ-JR-Oi4" id="aRw-bd-7Jk"/>
                 <outlet property="birthdayButton" destination="lhf-Eh-k3t" id="pNG-ca-N2m"/>
                 <outlet property="birthdayEdit" destination="FV3-vF-VYR" id="Prx-MT-fJy"/>
                 <outlet property="btnAddAvatar" destination="mpb-yK-ZND" id="CMD-G4-0Zf"/>
